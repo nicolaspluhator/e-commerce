@@ -1,9 +1,9 @@
 # Especificación de requisitos de software
 ## Enunciado del problema
 
-Muchas veces como comerciante debemos realizar nuestro registro de ventas de  nuestros productos de manera manual, donde ocurren errores de precisión y se vuelve complejo a la hora de realizar controles de esto.
-Otro problema que tenemos es la visibilidad y publicidad de nuestros productos donde de maneras externas debemos ofrecerlos y publicitarlos y de esta manera es complicado abrirse en el mercado.
-También es complicado tener un control de stock de los productos que tenemos.
+Muchas veces como comerciante debemos realizar el registro de ventas de  nuestros productos de manera manual, donde ocurren errores de precisión y se vuelve complejo a la hora de realizar controles de esto.
+Otro problema que tenemos es la visibilidad y publicidad de nuestros productos donde de maneras externas debemos ofrecerlos y publicitarlos; de esta manera es complicado abrirse en el mercado.
+También es complejo tener un control de stock de los productos que tenemos.
 
 ## Clientes potenciales 
 Comerciantes.
@@ -28,13 +28,22 @@ Realizar un sitio web e-commerce donde los comerciantes podrán ofrecer sus prod
 13. El comerciante podrá dar de alta una cuenta.
 14. El comerciante podrá editar su cuenta.
 15. El comerciante podrá dar de baja su cuenta.
-16. El cliente podrá visualizar un producto.
-17. El cliente podrá visualizar las categorias de los productos.
-18. El cliente podrá ver las ofertas de los productos.
-19. El cliente podrá ver su cuenta.
-20. El cliente podrá dar de alta una cuenta.
-21. El cliente podrá editar su cuenta.
-22. El cliente podrá dar de baja su cuenta.
+16. El comerciante podrá ver las ventas realizadas
+17. El comerciante podrá registrar una nueva venta.
+18. El comerciante podrá editar una venta.
+19. El comerciante podrá dar de baja una venta.
+20. El cliente podrá visualizar un producto.
+21. El cliente podrá visualizar las categorias de los productos.
+22. El cliente podrá ver las ofertas de los productos.
+23. El cliente podrá ver su cuenta.
+24. El cliente podrá dar de alta una cuenta.
+25. El cliente podrá editar su cuenta.
+26. El cliente podrá dar de baja su cuenta.
+27. El administrador podrá visualizar un rol.
+28. El administrador podrá dar de alta un rol.
+29. El administrador podrá editar un rol.
+30. El administrador podrá dar de baja un rol.
+
 
  ### Requisitos de sería bueno que tenga:
  1. El cliente podrá realizar una búsqueda de un producto.
