@@ -13,36 +13,37 @@ Realizar un sitio web e-commerce donde los comerciantes podrán ofrecer sus prod
 
 ## Requisitos
 ### Requisitos que debe estar:
- 1. El comerciante podrá visualizar un producto.
- 2. El comerciante podrá dar de alta un producto.
- 3. El comerciante podrá editar un producto.
- 4. El comerciante podrá dar de baja un producto.
- 5. El comerciante podrá ver las categorias de los productos.
- 6. El comerciante podrá dar de alta una nueva categoría de un producto.
- 7. El comerciante podrá editar una categoría de un producto.
- 8. El comerciante podrá dar de baja una categoría de un producto.
- 9. El comerciante podrá ver ofertas de un producto.
-10. El comerciante podrá editar las ofertas de un producto.
-11. El comerciante podrá dar de baja las ofertas de un producto.
-12. El comerciante podrá ver su cuenta.
-13. El comerciante podrá dar de alta una cuenta.
-14. El comerciante podrá editar su cuenta.
-15. El comerciante podrá dar de baja su cuenta.
-16. El comerciante podrá ver las ventas realizadas
-17. El comerciante podrá registrar una nueva venta.
-18. El comerciante podrá editar una venta.
-19. El comerciante podrá dar de baja una venta.
-20. El cliente podrá visualizar un producto.
-21. El cliente podrá visualizar las categorias de los productos.
-22. El cliente podrá ver las ofertas de los productos.
-23. El cliente podrá ver su cuenta.
-24. El cliente podrá dar de alta una cuenta.
-25. El cliente podrá editar su cuenta.
-26. El cliente podrá dar de baja su cuenta.
-27. El administrador podrá visualizar un rol.
-28. El administrador podrá dar de alta un rol.
-29. El administrador podrá editar un rol.
-30. El administrador podrá dar de baja un rol.
+1. El comerciante podrá visualizar un producto.
+2. El comerciante podrá dar de alta un producto.
+3. El comerciante podrá editar un producto.
+4. El comerciante podrá dar de baja un producto.
+5. El comerciante podrá ver las categorias de los productos.
+6. El comerciante podrá dar de alta una nueva categoría de un producto.
+7. El comerciante podrá editar una categoría de un producto.
+8. El comerciante podrá dar de baja una categoría de un producto.
+9. El comerciante podrá ver ofertas de un producto.
+10. El comerciante podrá dar de alta una oferta de un producto.
+11. El comerciante podrá editar las ofertas de un producto.
+12. El comerciante podrá dar de baja las ofertas de un producto.
+13. El comerciante podrá ver su cuenta.
+14. El comerciante podrá dar de alta una cuenta.
+15. El comerciante podrá editar su cuenta.
+16. El comerciante podrá dar de baja su cuenta.
+17. El comerciante podrá ver las ventas realizadas
+18. El comerciante podrá dar de alta una venta.
+19. El comerciante podrá editar una venta.
+20. El comerciante podrá dar de baja una venta.
+21. El cliente podrá visualizar un producto.
+22. El cliente podrá visualizar las categorias de los productos.
+23. El cliente podrá ver las ofertas de los productos.
+24. El cliente podrá ver su cuenta.
+25. El cliente podrá dar de alta una cuenta.
+26. El cliente podrá editar su cuenta.
+27. El cliente podrá dar de baja su cuenta.
+28. El administrador podrá visualizar un rol.
+29. El administrador podrá dar de alta un rol.
+30. El administrador podrá editar un rol.
+31. El administrador podrá dar de baja un rol.
 
 
  ### Requisitos de sería bueno que tenga:
