@@ -9,7 +9,7 @@ También es complejo tener un control de stock de los productos que tenemos.
 Comerciantes.
 
 ## Solución propuesta
-Realizar un sitio web e-commerce donde los comerciantes podrán ofrecer sus productos desde un sitio web propio, automatizar el registro y control de los productos, facilitar la publicidad y permitirles expandirse en el mercado, poder visualizar diversos informes como un informe de los productos más buscados en el mes, los productos que más se han guardado en favoritos, etc.
+Realizar un sitio web e-commerce donde los comerciantes podrán ofrecer sus productos desde un sitio web propio, automatizar el registro y control de los productos, facilitar la publicidad permitiéndoles expandirse en el mercado, poder visualizar diversos informes como un informe de los productos más buscados en el mes, los productos que más se han guardado en favoritos, etc.
 
 ## Requisitos
 ### Requisitos que debe estar:
