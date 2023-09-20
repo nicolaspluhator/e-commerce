@@ -188,31 +188,3 @@
 | **Prioridad** | Debe tener  |
 | **Tiempo estimado** | 3 días  |
 | _**Historia de usuario**_ | Como  _**cliente**_, quiero eliminar una cuenta para dar de baja mi usuario. |
-
- | ID | 28 |
-|:---------|:----|
-| **Título**  | Ver rol   |
-| **Prioridad** | Debe tener |
-| **Tiempo estimado** | 3 días  |
-| _**Historia de usuario**_ | Como _**administrador**_, quiero leer los roles para poder verificar cuales son los roles disponibles. |
-
- | ID | 29 |
-|:---------|:----|
-| **Título**  | Crear rol   |
-| **Prioridad** | Debe tener |
-| **Tiempo estimado** | 3 días  |
-| _**Historia de usuario**_ | Como _**administrador**_, quiero crear un rol para poder dar los permisos necesarios a los usuarios. |
-
- | ID | 30 |
-|:---------|:----|
-| **Título**  | Editar rol   |
-| **Prioridad** | Debe tener |
-| **Tiempo estimado** | 3 días  |
-| _**Historia de usuario**_ | Como _**administrador**_, quiero editar un rol para poder actualizar los permisos necesarios a los usuarios. |
-
- | ID | 31 |
-|:---------|:----|
-| **Título**  | Eliminar rol   |
-| **Prioridad** | Debe tener |
-| **Tiempo estimado** | 3 días  |
-| _**Historia de usuario**_ | Como _**administrador**_, quiero eliminar un rol para poder darlo de baja. |

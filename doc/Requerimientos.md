@@ -13,37 +13,33 @@ Realizar un sitio web e-commerce donde los comerciantes podrán ofrecer sus prod
 
 ## Requisitos
 ### Requisitos que debe estar:
-1. El comerciante podrá visualizar un producto.
-2. El comerciante podrá dar de alta un producto.
-3. El comerciante podrá editar un producto.
-4. El comerciante podrá dar de baja un producto.
-5. El comerciante podrá ver las categorias de los productos.
-6. El comerciante podrá dar de alta una nueva categoría de un producto.
-7. El comerciante podrá editar una categoría de un producto.
-8. El comerciante podrá dar de baja una categoría de un producto.
-9. El comerciante podrá ver ofertas de un producto.
-10. El comerciante podrá dar de alta una oferta de un producto.
-11. El comerciante podrá editar las ofertas de un producto.
-12. El comerciante podrá dar de baja las ofertas de un producto.
-13. El comerciante podrá ver su cuenta.
-14. El comerciante podrá dar de alta una cuenta.
-15. El comerciante podrá editar su cuenta.
-16. El comerciante podrá dar de baja su cuenta.
-17. El comerciante podrá ver las ventas realizadas
-18. El comerciante podrá dar de alta una venta.
-19. El comerciante podrá editar una venta.
-20. El comerciante podrá dar de baja una venta.
-21. El cliente podrá visualizar un producto.
-22. El cliente podrá visualizar los productos por categoría.
-23. El cliente podrá ver las ofertas de los productos.
-24. El cliente podrá ver su cuenta.
-25. El cliente podrá dar de alta una cuenta.
-26. El cliente podrá editar su cuenta.
-27. El cliente podrá dar de baja su cuenta.
-28. El administrador podrá visualizar un rol.
-29. El administrador podrá dar de alta un rol.
-30. El administrador podrá editar un rol.
-31. El administrador podrá dar de baja un rol.
+1. Como _**comerciante**_, quiero leer mis productos para poder revisar lo que está disponible actualmente en mi sitio.
+2. Como  _**comerciante**_, quiero crear un producto para poder ofrecer a mis clientes los productos.
+3. Como  _**comerciante**_, quiero actualizar un producto para poder ofrecer a mis clientes los productos.
+4. Como  _**comerciante**_, quiero eliminar un producto para quitar aquellos productos que no serán usados.
+5. Como _**comerciante**_, quiero leer las categorias para poder revisar cuales son las disponibles.
+6. Como  _**comerciante**_, quiero crear una categoría para poder clasificar los productos.
+7. Como  _**comerciante**_, quiero actualizar una categoría para poder mantener actualizada la información.
+8. Como  _**comerciante**_, quiero eliminar una categoría para poder quitar aquellas categorías que no serán usadas.
+9. Como _**comerciante**_, quiero leer las ofertas para poder revisar cuales son las disponibles.
+10. Como  _**comerciante**_, quiero crear una oferta para poder ofrecer promociones a mis clientes.
+11. Como  _**comerciante**_, quiero actualizar una oferta para poder mantener actualizada la información.
+12. Como  _**comerciante**_, quiero eliminar una oferta para poder quitar aquellas ofertas que hayan finalizado.
+13. Como _**comerciante**_, quiero ver la información correspondiente a mi cuenta.
+14. Como  _**comerciante**_, quiero crear una cuenta para poder utilizar las funcionalidades de la página.
+15. Como  _**comerciante**_, quiero actualizar una cuenta para poder corregir la información de la cuenta.
+16. Como  _**comerciante**_, quiero eliminar una cuenta para dar de baja un usuario.
+17. Como _**comerciante**_, quiero leer las ventas para poder revisar los registros de las ventas realizadas.
+18. Como _**comerciante**_, quiero crear una venta para poder realizar el regsitro de una venta efectuada.
+19. Como _**comerciante**_, quiero editar una venta para poder corregir cuando haya un error en una venta.
+20. Como _**comerciante**_, quiero eliminar una venta para cuando se cancele una venta.
+21. Como _**cliente**_, quiero leer mis productos para poder revisar lo que está disponible actualmente en el sitio.
+22. Como _**cliente**_, quiero leer los productos ordenados por su categoría para poder revisar cuales son las disponibles.
+23. Como _**cliente**_, quiero leer las ofertas para poder revisar cuales son las disponibles.
+24. Como _**cliente**_, quiero ver la información correspondiente a mi cuenta.
+25. Como  _**cliente**_, quiero crear una cuenta para poder utilizar las funcionalidades de la página.
+26. Como  _**cliente**_, quiero actualizar una cuenta para poder corregir la información de la cuenta.
+27. Como  _**cliente**_, quiero eliminar una cuenta para dar de baja mi usuario.
 
 
  ### Requisitos de sería bueno que tenga:
