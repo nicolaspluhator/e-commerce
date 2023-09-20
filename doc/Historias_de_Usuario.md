@@ -149,10 +149,10 @@
 
  | ID | 22 |
 |:---------|:----|
-| **Título**  | Ver categoría   |
+| **Título**  | Ver producto por categoría   |
 | **Prioridad** | Debe tener |
 | **Tiempo estimado** | 3 días  |
-| _**Historia de usuario**_ | Como _**cliente**_, quiero leer las categorias para poder revisar cuales son las disponibles. |
+| _**Historia de usuario**_ | Como _**cliente**_, quiero leer los productos ordenados por su categoría para poder revisar cuales son las disponibles. |
 
  | ID | 23 |
 |:---------|:----|

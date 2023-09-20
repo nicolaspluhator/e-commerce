@@ -34,7 +34,7 @@ Realizar un sitio web e-commerce donde los comerciantes podrán ofrecer sus prod
 19. El comerciante podrá editar una venta.
 20. El comerciante podrá dar de baja una venta.
 21. El cliente podrá visualizar un producto.
-22. El cliente podrá visualizar las categorias de los productos.
+22. El cliente podrá visualizar los productos por categoría.
 23. El cliente podrá ver las ofertas de los productos.
 24. El cliente podrá ver su cuenta.
 25. El cliente podrá dar de alta una cuenta.
