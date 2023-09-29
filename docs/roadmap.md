@@ -3,15 +3,10 @@
 ---
 ## Indice
 1. [Iteración 1](#iteración-1)
-    - [Historias de usuario a desarrollar](#historias-de-usuario-a-desarrollar)
 2. [Iteración 2](#iteración-2)
-    - [Historias de usuario a desarrollar](#historias-de-usuario-a-desarrollar-1)
 3. [Iteración 3](#iteración-3)
-    - [Historias de usuario a desarrollar](#historias-de-usuario-a-desarrollar-2)
 4. [Iteración 4](#iteración-4)
-    - [Historias de usuario a desarrollar](#historias-de-usuario-a-desarrollar-3)
 5. [Iteración 5](#iteración-5)
-    - [Historias de usuario a desarrollar](#historias-de-usuario-a-desarrollar-4)
 
 ---
 
