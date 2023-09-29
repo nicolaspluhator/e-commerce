@@ -1,4 +1,13 @@
 # Especificación de requisitos de software
+## Indice
+ 1. [Enunciado del problema](#enunciado-del-problema)
+ 2. [Clientes potenciales](#clientes-potenciales)
+ 3. [Solución propuesta](#solución-propuesta)
+ 4. [Requisitos](#requisitos)
+    -  [Requisitos que debe estar](#requisitos-que-debe-estar)
+    -  [Requisitos de sería bueno que tenga](#requisitos-de-sería-bueno-que-tenga)
+5. [Arquitectura de software](#arquitectura-de-software)
+
 ## Enunciado del problema
 
 Muchas veces como comerciante debemos realizar el registro de ventas de  nuestros productos de manera manual, donde ocurren errores de precisión y se vuelve complejo a la hora de realizar controles de esto.
@@ -55,3 +64,5 @@ Realizar un sitio web e-commerce donde los comerciantes podrán ofrecer sus prod
  3. Lenguaje de programación será **Java**
  4. Utilizaremos el framework **Spring**
  5. La base de datos será **MariaDB**
+
+ [Ir a Indice](#indice)
