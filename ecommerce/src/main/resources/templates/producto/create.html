@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Ecommerce - Crear Producto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Crear un Producto</h1>
+            <br>
+            <a th:href="@{/productos}">Regresar</a>
+            <br/>
+            
+            <form th:action="@{/productos}" method="post" th:object="${producto}">
+                <input type="hidden" name="idProd" th:field="*{idProd}"/>
+                <br/>
+                <label for="nombreProd">Nombre:</label>
+                <input type="text" name="nombreProd" th:field="*{nombreProd}"/>
+                <br/>
+                <label for="descProd">Descripción: </label>
+                <input type="text" name="descProd" th:field="*{descProd}"/>
+                <br/>
+                <label for="categProd">Categoría: </label>
+                <input type="text" name="categProd" th:field="*{categProd}"/>
+                <br/>
+                <label for="precioProd">Precio: </label>
+                <input type="text" name="precioProd" th:field="*{precioProd}"/>
+                <br/>
+                <label for="cantProd">Cantidad: </label>
+                <input type="text" name="cantProd" th:field="*{cantProd}"/>
+                <br/>
+                
+                <input type="submit" name="guardar" value="Guardar"/>
+            </form>
+        </div>
+    </body>
+</html>
