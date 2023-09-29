@@ -4,7 +4,7 @@
 |:---------|:----|
 | **Título**  | Ver producto   |
 | **Prioridad** | Debe tener |
-| **Tiempo estimado** | 3 días  |
+| **Tiempo estimado** | 2 días  |
 | _**Historia de usuario**_ | Como _**comerciante**_, quiero leer mis productos para poder revisar lo que está disponible actualmente en mi sitio. |
 
  | ID | 2 |
@@ -18,42 +18,42 @@
 |:---------|:----|
 | **Título**  | Editar producto   |
 | **Prioridad** | Debe tener  |
-| **Tiempo estimado** | 3 días  |
+| **Tiempo estimado** | 2 días  |
 | _**Historia de usuario**_ | Como  _**comerciante**_, quiero actualizar un producto para poder ofrecer a mis clientes los productos. |
 
 | ID | 4 |
 |:---------|:----|
 | **Título**  | Eliminar producto   |
 | **Prioridad** | Debe tener  |
-| **Tiempo estimado** | 3 días  |
+| **Tiempo estimado** | 1 días  |
 | _**Historia de usuario**_ | Como  _**comerciante**_, quiero eliminar un producto para quitar aquellos productos que no serán usados. |
 
  | ID | 5 |
 |:---------|:----|
 | **Título**  | Ver categoría   |
 | **Prioridad** | Debe tener |
-| **Tiempo estimado** | 3 días  |
+| **Tiempo estimado** | 1 días  |
 | _**Historia de usuario**_ | Como _**comerciante**_, quiero leer las categorias para poder revisar cuales son las disponibles. |
 
 | ID | 6 |
 |:---------|:----|
 | **Título**  | Crear categoría   |
 | **Prioridad** | Debe tener  |
-| **Tiempo estimado** | 3 días  |
+| **Tiempo estimado** | 2 días  |
 | _**Historia de usuario**_ | Como  _**comerciante**_, quiero crear una categoría para poder clasificar los productos. |
 
 | ID | 7 |
 |:---------|:----|
 | **Título**  | Editar categoría   |
 | **Prioridad** | Debe tener  |
-| **Tiempo estimado** | 3 días  |
+| **Tiempo estimado** | 2 días  |
 | _**Historia de usuario**_ | Como  _**comerciante**_, quiero actualizar una categoría para poder mantener actualizada la información. |
 
 | ID | 8 |
 |:---------|:----|
 | **Título**  | Eliminar categoría  |
 | **Prioridad** | Debe tener  |
-| **Tiempo estimado** | 3 días  |
+| **Tiempo estimado** | 1 días  |
 | _**Historia de usuario**_ | Como  _**comerciante**_, quiero eliminar una categoría para poder quitar aquellas categorías que no serán usadas. |
 
  | ID | 9 |
@@ -188,3 +188,38 @@
 | **Prioridad** | Debe tener  |
 | **Tiempo estimado** | 3 días  |
 | _**Historia de usuario**_ | Como  _**cliente**_, quiero eliminar una cuenta para dar de baja mi usuario. |
+
+| ID | 28 |
+|:---------|:----|
+| **Título**  | Listar ingresos   |
+| **Prioridad** | Debe tener  |
+| **Tiempo estimado** | 3 días  |
+| _**Historia de usuario**_ | Como _**comerciante**_, quiero leer los ingresos para poder visualizar los ingresos que he tenido. |
+
+| ID | 29 |
+|:---------|:----|
+| **Título**  | Ver ingreso   |
+| **Prioridad** | Debe tener  |
+| **Tiempo estimado** | 3 días  |
+| _**Historia de usuario**_ | Como _**comerciante**_, quiero ver un ingreso para poder ver detalladamente que se compró. |
+
+| ID | 30 |
+|:---------|:----|
+| **Título**  | Crear ingreso   |
+| **Prioridad** | Debe tener  |
+| **Tiempo estimado** | 3 días  |
+| _**Historia de usuario**_ | Como _**comerciante**_, quiero crear un ingreso para poder registrar los nuevos ingresos a mi tienda. |
+
+| ID | 31 |
+|:---------|:----|
+| **Título**  | Editar ingreso   |
+| **Prioridad** | Debe tener  |
+| **Tiempo estimado** | 3 días  |
+| _**Historia de usuario**_ | Como _**comerciante**_, quiero actualizar un ingreso para poder corregir aquella información erronea. |
+
+| ID | 32 |
+|:---------|:----|
+| **Título**  | Eliminar ingreso   |
+| **Prioridad** | Debe tener  |
+| **Tiempo estimado** | 3 días  |
+| _**Historia de usuario**_ | Como _**comerciante**_, quiero eliminar un ingreso para dar de baja un ingreso en caso de haber sido creado por error. |
