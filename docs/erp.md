@@ -1,4 +1,5 @@
 # Especificación de requisitos de software
+---
 ## Indice
  1. [Enunciado del problema](#enunciado-del-problema)
  2. [Clientes potenciales](#clientes-potenciales)
@@ -7,6 +8,7 @@
     -  [Requisitos que debe estar](#requisitos-que-debe-estar)
     -  [Requisitos de sería bueno que tenga](#requisitos-de-sería-bueno-que-tenga)
 5. [Arquitectura de software](#arquitectura-de-software)
+---
 
 ## Enunciado del problema
 
@@ -14,12 +16,15 @@ Muchas veces como comerciante debemos realizar el registro de ventas de  nuestro
 Otro problema que tenemos es la visibilidad y publicidad de nuestros productos donde de maneras externas debemos ofrecerlos y publicitarlos; de esta manera es complicado abrirse en el mercado.
 También es complejo tener un control de stock de los productos que tenemos.
 
+---
 ## Clientes potenciales 
 Comerciantes.
 
+---
 ## Solución propuesta
 Realizar un sitio web e-commerce donde los comerciantes podrán ofrecer sus productos desde un sitio web propio, automatizar el registro y control de los productos, facilitar la publicidad permitiéndoles expandirse en el mercado, poder visualizar diversos informes como un informe de los productos más buscados en el mes, los productos que más se han guardado en favoritos, etc.
 
+---
 ## Requisitos
 ### Requisitos que debe estar:
 1. Como _**comerciante**_, quiero leer mis productos para poder revisar lo que está disponible actualmente en mi sitio.
@@ -49,6 +54,12 @@ Realizar un sitio web e-commerce donde los comerciantes podrán ofrecer sus prod
 25. Como  _**cliente**_, quiero crear una cuenta para poder utilizar las funcionalidades de la página.
 26. Como  _**cliente**_, quiero actualizar una cuenta para poder corregir la información de la cuenta.
 27. Como  _**cliente**_, quiero eliminar una cuenta para dar de baja mi usuario.
+28. Como _**comerciante**_, quiero leer los ingresos para poder visualizar los ingresos que he tenido.
+29. Como _**comerciante**_, quiero ver un ingreso para poder ver detalladamente que se compró.
+30. Como _**comerciante**_, quiero crear un ingreso para poder registrar los nuevos ingresos a mi tienda.
+31. Como _**comerciante**_, quiero actualizar un ingreso para poder corregir aquella información erronea.
+32. Como _**comerciante**_, quiero eliminar un ingreso para dar de baja un ingreso en caso de haber sido creado por error.
+
 
 
  ### Requisitos de sería bueno que tenga:
@@ -58,11 +69,14 @@ Realizar un sitio web e-commerce donde los comerciantes podrán ofrecer sus prod
  4. El cliente podrá marcar productos de su interés.
  5. El cliente podrá compartir un producto en redes sociales.
 
+---
 ## Arquitectura de software
  1. La aplicación será **Web**
  2. La arquitectura será **Cliente/Servidor**
  3. Lenguaje de programación será **Java**
  4. Utilizaremos el framework **Spring**
  5. La base de datos será **MariaDB**
+
+ ---
 
  [Ir a Indice](#indice)
