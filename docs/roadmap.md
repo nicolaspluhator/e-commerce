@@ -3,15 +3,10 @@
 ---
 ## Indice
 1. [Iteración 1](#iteración-1)
-    - [Historias de usuario a desarrollar](#historias-de-usuario-a-desarrollar)
 2. [Iteración 2](#iteración-2)
-    - [Historias de usuario a desarrollar](#historias-de-usuario-a-desarrollar)
 3. [Iteración 3](#iteración-3)
-    - [Historias de usuario a desarrollar](#historias-de-usuario-a-desarrollar)
 4. [Iteración 4](#iteración-4)
-    - [Historias de usuario a desarrollar](#historias-de-usuario-a-desarrollar)
 5. [Iteración 5](#iteración-5)
-    - [Historias de usuario a desarrollar](#historias-de-usuario-a-desarrollar)
 
 ---
 
@@ -34,7 +29,7 @@ En esta entrega el sistema contara con el **CRUD de los productos, sus precios y
 Para la iteración 2 quiero desarrollar el módulo de **ingreso** de productos para poder comenzar a llevar un registro de los nuevos ingresos en el inventario.
 En esta entrega contará con el **CRUD de los ingresos**.
 
-### Historias a usuario a desarrollar
+### Historias de usuarios a desarrollar
 - Como _**comerciante**_, quiero leer los ingresos para poder visualizar los ingresos que he tenido.
 - Como _**comerciante**_, quiero ver un ingreso para poder ver detalladamente que se compró.
 - Como _**comerciante**_, quiero crear un ingreso para poder registrar los nuevos ingresos a mi tienda.
