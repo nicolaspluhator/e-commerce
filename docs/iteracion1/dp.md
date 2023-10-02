@@ -2,6 +2,37 @@
 
 ## Indice
 
+1. [Trabajo en equipo](#trabajo-en-equipo)
+2. [Distribución de trabajo](#distribución-de-trabajo)
+3. [Diseño OO](#diseño-OO)
+4. [Wireframe y caso de uso](#wireframe-y-caso-de-uso)
+    - [Página principal](#página-principal)
+    - [Productos - Wireframes y Casos de uso](#productos---wireframes-y-casos-de-uso)
+        - [Wireframe: Listar productos](#wireframe-listar-productos-extiende-de-home)
+        - [Caso de uso: Listar productos](#caso-de-uso-listar-productos)
+        - [Wireframe: Crear producto](#wireframe-crear-producto-extiende-de-home)
+        - [Caso de uso: Crear producto](#caso-de-uso-crear-producto)
+        - [Wireframe: Editar producto](#wireframe-editar-producto-extiende-de-home)
+        - [Caso de uso: Editar producto](#caso-de-uso-editar-producto)
+        - [Wireframe: Ver producto](#wireframe-ver-producto-extiende-de-home)
+        - [Caso de uso: Ver producto](#caso-de-uso-ver-producto)
+        - [Wireframe: Borrar producto](#wireframe-borrar-producto-modal)
+        - [Caso de uso: Borrar producto](#caso-de-uso-borrar-producto)
+    - [Categorias - Wireframes y Casos de uso](#categorias---wireframes-y-casos-de-uso)
+        - [Wireframe: Listar categorias](#wireframe-listar-categorias-extiende-de-home)
+        - [Caso de uso: Listar categorias](#caso-de-uso-listar-categorias)
+        - [Wireframe: Crear categoria](#wireframe-crear-categoria-extiende-de-home)
+        - [Caso de uso: Crear categoria](#caso-de-uso-crear-categoria)
+        - [Wireframe: Editar categoria](#wireframe-editar-categoria-extiende-de-home)
+        - [Caso de uso: Editar categoria](#caso-de-uso-editar-categoria)
+        - [Wireframe: Ver categoria](#wireframe-ver-categoria-extiende-de-home)
+        - [Caso de uso: Ver categoria](#caso-de-uso-ver-categoria)
+        - [Wireframe: Borrar categoria](#wireframe-borrar-categoria-modal)
+        - [Caso de uso: Borrar categoria](#caso-de-uso-borrar-categoria)
+5. [Backlog de las iteraciones](#backlog-de-las-iteraciones)
+6. [Tareas](#tareas)
+
+
 ---
 
 ## Trabajo en equipo
@@ -9,7 +40,7 @@
 
 ---
 
-### Distribucion de trabajo
+### Distribución de trabajo
 _**Pluhator Nicolás:**_ Configuracion inicial del proyecto, crear y programar modelos\clases, controladores, desarrollo de interfaz de usuario (vistas), controles de validacion, definicion de rutas, creacion de seeders.
 
 ---
@@ -117,11 +148,11 @@ Una vez en la página de listado de productos (Referirse al caso de uso Listar p
 
 ---
 
-#### Wireframe: Listar categoría (Extiende de Home) 
+#### Wireframe: Listar categorias (Extiende de Home) 
 
-![Listar categoría](/docs/iteracion1/diagrams/w3_ListCateg.PNG)
+![Listar categorias](/docs/iteracion1/diagrams/w3_ListCateg.PNG)
 
-#### Caso de uso: Listar categoría
+#### Caso de uso: Listar categorias
 
 1. El usuario accederá a la aplicación web a través de un navegador.
 2. Se le presentará al usuario la página de inicio.
@@ -217,5 +248,10 @@ Una vez en la página de listado de categorias (Referirse al caso de uso Listar 
 - Crear vistas relacionadas al CRUD del producto.
 - Crear vistas relacionadas al CRUD de categoría.
 
+---
 
 ## ~~Retrospectiva~~
+
+---
+
+[Ir al índice](#indice)
