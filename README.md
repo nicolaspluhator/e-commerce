@@ -8,7 +8,7 @@ un sitio web e-commerce donde los comerciantes podrán ofrecer sus productos des
  ASC. Nicolás, Pluhator.
  
 ## Cátedra 
-Programación orientada a objetos 2., FCEQyN UNaM.
+Programación Orientada a Objetos 2., FCEQyN UNaM.
 
 ## Arquitectura del sistema
  1. La aplicación será **Web**
