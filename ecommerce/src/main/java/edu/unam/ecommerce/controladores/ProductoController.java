@@ -1,5 +1,5 @@
 package edu.unam.ecommerce.controladores;
-
+/*
 import edu.unam.ecommerce.modelo.Producto;
 import edu.unam.ecommerce.servicios.ProductoServicio;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,7 @@ public class ProductoController {
         return "producto/index";
     }
     
-    @GetMapping("/productos/crear")
+    @GetMapping("/productos/create")
     public String create(Model model){
         var producto = new Producto();
         model.addAttribute("producto", producto);
@@ -39,4 +39,5 @@ public class ProductoController {
         productoServicio.agregarProducto(producto);
         return "redirect:/productos";
     }
-}
+    
+}*/

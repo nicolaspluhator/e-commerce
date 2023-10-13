@@ -1,11 +1,10 @@
 package edu.unam.ecommerce.modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,16 +17,31 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
-    private Integer idProd;
+    private Integer idProducto;
     
     @Column(nullable = false, length = 40)
-    private String nombreProd;
+    private String nombreProducto;
     
     @Column(nullable = true, length = 100)
-    private String descProd;
+    private String descripcionProducto;
     
     @Column(nullable = false, length = 40)
-    private String categProd;
-    private Float precioProd;
-    private Integer cantProd;
+    private String marcaProducto;
+    
+    private Integer stock;
+    private String SKU;
+    private boolean estado = true;
+    
+    @Column(nullable = true)
+    private String image;
+    
+    private LocalDateTime created_at = LocalDateTime.now();
+    private LocalDateTime updated_at = LocalDateTime.now();
+    
+    @ManyToOne
+    @JoinColumn (name="categoria", nullable= false)
+    private Categoria categoria;
+    
+    @OneToMany (mappedBy = "producto")
+    private List<Precio> precios = new ArrayList<>();
 }

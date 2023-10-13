@@ -1,6 +1,12 @@
 edu\unam\ecommerce\repositorios\ProductoRepositorio.class
 edu\unam\ecommerce\EcommerceApplication.class
-edu\unam\ecommerce\controladores\HomeController.class
-edu\unam\ecommerce\controladores\ProductoController.class
+edu\unam\ecommerce\modelo\Categoria.class
 edu\unam\ecommerce\servicios\ProductoServicio.class
+edu\unam\ecommerce\controladores\CategoriaController.class
+edu\unam\ecommerce\repositorios\PrecioRepositorio.class
 edu\unam\ecommerce\modelo\Producto.class
+edu\unam\ecommerce\servicios\CategoriaServicio.class
+edu\unam\ecommerce\servicios\PrecioServicio.class
+edu\unam\ecommerce\repositorios\CategoriaRepositorio.class
+edu\unam\ecommerce\controladores\HomeController.class
+edu\unam\ecommerce\modelo\Precio.class
