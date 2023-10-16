@@ -21,7 +21,7 @@
                                 Si desea agregar un nuevo Producto, haga click en el botón de "Nuevo Producto".
                             </p>
                             <div class="text-end">
-                                <a th:href="@{/productos/create}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Producto</a>
+                                <a th:href="@{/productos/create}" class="btn btn-primary"> Nuevo Producto</a>
                             </div>
                         </div>
                     </div>    
@@ -39,13 +39,14 @@
                     <div class="col">
                         <div th:if="${productos != null and !productos.empty}">
                             <table class="table table-hoover table-striped">
-                                <thead>
+                                <thead class="table-dark">
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Descripción</th>
                                     <th scope="col">Marca</th>
                                     <th scope="col">Stock</th>
                                     <th scope="col">SKU</th>
-                                    <th scope="col"s>Categoria</th>
+                                    <th scope="col">Categoria</th>
+                                    <th scope="col"></th>
                                 </thead>
 
                                 <tbody th:each="producto: ${productos}">
@@ -54,7 +55,14 @@
                                     <td th:text="${producto.marcaProducto}"></td>
                                     <td th:text="${producto.stock}"></td>
                                     <td th:text="${producto.SKU}"></td>
-                                    <td th:text="${producto.categoria}"></td>
+                                    <td th:text="${producto.categoria.nombreCategoria}"></td>
+                                    <td class="d-flex justify-content-evenly">
+                                        <a th:href="@{/productos/} + ${producto.idProducto} + @{/show}" class="btn btn-success">Ver</a>
+                                        <a th:href="@{/productos/} + ${producto.idProducto} + @{/edit}" class="btn btn-warning">Editar</a>
+                                        <form th:action="@{/productos/} + ${producto.idProducto}" th:method="delete" th:object="${producto}">
+                                            <button class="btn btn-danger">Eliminar</button>
+                                        </form>
+                                    </td>
                                 </tbody>
                             </table>
                         </div>

@@ -2,6 +2,7 @@ package edu.unam.ecommerce.controladores;
 
 import edu.unam.ecommerce.modelo.Categoria;
 import edu.unam.ecommerce.servicios.CategoriaServicio;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,7 +39,7 @@ public class CategoriaController {
     }
     
     @PostMapping("/categorias")
-    public String store(Categoria categoria){
+    public String store(@Valid Categoria categoria){
         categoriaServicio.agregarCategoria(categoria);
         return "redirect:/categorias";
     }
@@ -51,7 +52,7 @@ public class CategoriaController {
     }
     
     @PutMapping("/categorias/{id}")
-    public String update(@PathVariable int id, Categoria categoria){
+    public String update(@PathVariable int id, @Valid Categoria categoria){
         categoriaServicio.actualizarCategoria(id, categoria);
         return "redirect:/categorias";
     }

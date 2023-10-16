@@ -7,33 +7,56 @@
     </head>
     <body>
         <header th:replace="plantilla/layout :: header"></header>
-        <div>
-            <h1>Crear un Producto</h1>
-            <br>
-            <a th:href="@{/productos}">Regresar</a>
-            <br/>
-            
-            <form th:action="@{/productos}" method="post" th:object="${producto}">
-                <input type="hidden" name="idProd" th:field="*{idProd}"/>
-                <br/>
-                <label for="nombreProd">Nombre:</label>
-                <input type="text" name="nombreProd" th:field="*{nombreProd}"/>
-                <br/>
-                <label for="descProd">Descripción: </label>
-                <input type="text" name="descProd" th:field="*{descProd}"/>
-                <br/>
-                <label for="categProd">Categoría: </label>
-                <input type="text" name="categProd" th:field="*{categProd}"/>
-                <br/>
-                <label for="precioProd">Precio: </label>
-                <input type="text" name="precioProd" th:field="*{precioProd}"/>
-                <br/>
-                <label for="cantProd">Cantidad: </label>
-                <input type="text" name="cantProd" th:field="*{cantProd}"/>
-                <br/>
-                
-                <input type="submit" name="guardar" value="Guardar"/>
-            </form>
+        <div class="container-fluid my-4">
+            <main class="row m-4">
+                <div class="col card">
+                    <div class="row">
+                        <div class="card-header">
+                            <h2 class="h2 p-3">Registrar un Producto</h2>
+                        </div>
+                    </div>
+                    <div class="row m-2">
+                        <div class="col">
+                            <form th:action="@{/productos}" th:object="${producto}" method="post" enctype="multipart/form-data">
+                                
+                                <br/>
+                                <label class="form-label" for="nombreProducto">Nombre:</label>
+                                <input class="form-control" type="text" name="nombreProducto" th:field="*{nombreProducto}"/>
+                                <br/>
+                                <label class="form-label" for="descripcionProducto">Descripción: </label>
+                                <input class="form-control" type="text" name="descripcionProducto" th:field="*{descripcionProducto}"/>
+                                <br/>
+                                <label class="form-label" for="marcaProducto">Marca: </label>
+                                <input class="form-control" type="text" name="marcaProducto" th:field="*{marcaProducto}"/>
+                                <br/>
+                                <label class="form-label" for="stock">Stock: </label>
+                                <input class="form-control" type="text" name="stock" th:field="*{stock}"/>
+                                <br/>
+                                <label class="form-label" for="SKU">SKU: </label>
+                                <input class="form-control" type="text" name="SKU" th:field="*{SKU}"/>
+                                <br/>
+                                <label class="form-label" for="precio">Precio: </label>
+                                <input class="form-control" type="text" name="precio" th:field="*{precio}"/>
+                                <br/>
+                                <div class="mb-3">
+                                  <label class="form-label" for="imagen">Imagen: </label>
+                                  <input class="form-control" type="file" name="file" id="imagen">
+                                </div>
+                                <br/>
+                                <select name="categoria" class="form-select" aria-label="Select de Categorias">
+                                  <option value = "0" selected>-- Seleccione una categoria --</option>
+                                  <option th:each="categoria: ${categorias}" th:value="${categoria.idCategoria}" th:text="${categoria.nombreCategoria}"></option>
+                                </select>
+
+                                <div class="text-end mt-2">
+                                    <input class="btn btn-primary" type="submit" name="guardar" value="Guardar"/>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
         <footer th:replace="plantilla/layout :: footer"></footer>
     </body>

@@ -1,10 +1,10 @@
 package edu.unam.ecommerce.modelo;
 
-
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,29 +19,49 @@ public class Producto {
     @Setter(AccessLevel.NONE)
     private Integer idProducto;
     
-    @Column(nullable = false, length = 40)
+    @NotNull
+    @Size(max = 40)
+    @Column(length = 40)
     private String nombreProducto;
     
-    @Column(nullable = true, length = 100)
+    @NotBlank
+    @Size(min = 3, max= 255)
+    @Column(length = 255)
     private String descripcionProducto;
     
-    @Column(nullable = false, length = 40)
+    @NotNull
+    @Size(max = 40)
+    @Column(length = 40)
     private String marcaProducto;
     
+    @NotNull
     private Integer stock;
+    
+    @NotBlank
+    @Size(min = 5, max= 30)
     private String SKU;
+    
+    @Column(nullable = false)
     private boolean estado = true;
     
-    @Column(nullable = true)
-    private String image;
+    @NotNull
+    private float precio;
     
+    @Column(nullable= true)
+    private String imagen;
+    
+    @Setter(AccessLevel.NONE)
     private LocalDateTime created_at = LocalDateTime.now();
+    
     private LocalDateTime updated_at = LocalDateTime.now();
     
+    @NotNull
     @ManyToOne
     @JoinColumn (name="categoria", nullable= false)
     private Categoria categoria;
     
+    /*
     @OneToMany (mappedBy = "producto")
     private List<Precio> precios = new ArrayList<>();
+    */
 }
