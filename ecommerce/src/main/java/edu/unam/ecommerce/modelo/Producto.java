@@ -1,11 +1,10 @@
 package edu.unam.ecommerce.modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,16 +17,51 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
-    private Integer idProd;
+    private Integer idProducto;
     
-    @Column(nullable = false, length = 40)
-    private String nombreProd;
+    @NotNull
+    @Size(max = 40)
+    @Column(length = 40)
+    private String nombreProducto;
     
-    @Column(nullable = true, length = 100)
-    private String descProd;
+    @NotBlank
+    @Size(min = 3, max= 255)
+    @Column(length = 255)
+    private String descripcionProducto;
     
-    @Column(nullable = false, length = 40)
-    private String categProd;
-    private Float precioProd;
-    private Integer cantProd;
+    @NotNull
+    @Size(max = 40)
+    @Column(length = 40)
+    private String marcaProducto;
+    
+    @NotNull
+    private Integer stock;
+    
+    @NotBlank
+    @Size(min = 5, max= 30)
+    private String SKU;
+    
+    @Column(nullable = false)
+    private boolean estado = true;
+    
+    @NotNull
+    private float precio;
+    
+    @Column(nullable= true)
+    private String imagen;
+    
+    @Setter(AccessLevel.NONE)
+    private LocalDateTime created_at = LocalDateTime.now();
+    
+    private LocalDateTime updated_at = LocalDateTime.now();
+    
+    @NotNull
+    @ManyToOne
+    @JoinColumn (name="categoria", nullable= false)
+    private Categoria categoria;
+    
+    /*
+    @OneToMany (mappedBy = "producto")
+    private List<Precio> precios = new ArrayList<>();
+    */
 }

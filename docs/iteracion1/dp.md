@@ -241,6 +241,7 @@ Una vez en la página de listado de categorias (Referirse al caso de uso Listar 
 - Configuración inicial del proyecto.
 - Crear modelos de las clases Producto, Precio y Categoría.
 - Crear repositorios de las clases Producto, Precio y Categoría.
+- Crear servicios de las clases Producto, Precio y Categoría.
 - Relacionar los modelos correspondientes.
 - Crear controladores de las clases Producto, Precio y Categoría.
 - Crear y configurar rutas.

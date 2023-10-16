@@ -1,34 +1,80 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
+    <head th:replace="~{plantilla/layout :: head}">
         <title>Ecommerce - Listado de Productos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Listado de Productos</h1>
-        <a th:href="@{productos/crear}">Crear producto</a>
-        <div th:if="${productos != null and !productos.empty}">
-            <table border="1">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Categoría</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                </tr>
+        <header th:replace="~{plantilla/layout :: header}"></header>
 
-                <tr th:each="producto: ${productos}">
-                    <td th:text="${producto.nombreProd}"></td>
-                    <td th:text="${producto.descProd}"></td>
-                    <td th:text="${producto.categProd}"></td>
-                    <td th:text="${producto.precioProd}"></td>
-                    <td th:text="${producto.cantProd}"></td>
-                </tr>
-            </table>
+        <div class="container-fluid">
+
+            <section class="row my-4" aria-label="Nuevo Producto">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h2 class="h1">Crear un producto</h2>
+                            </div>
+                            <p class="card-text">
+                                Si desea agregar un nuevo Producto, haga click en el botón de "Nuevo Producto".
+                            </p>
+                            <div class="text-end">
+                                <a th:href="@{/productos/create}" class="btn btn-primary"> Nuevo Producto</a>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </section>
+
+            <main class="row my-4">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="h2">Listado de Productos</h2>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <div th:if="${productos != null and !productos.empty}">
+                            <table class="table table-hoover table-striped">
+                                <thead class="table-dark">
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Marca</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">SKU</th>
+                                    <th scope="col">Categoria</th>
+                                    <th scope="col"></th>
+                                </thead>
+
+                                <tbody th:each="producto: ${productos}">
+                                    <td th:text="${producto.nombreProducto}"></td>
+                                    <td th:text="${producto.descripcionProducto}"></td>
+                                    <td th:text="${producto.marcaProducto}"></td>
+                                    <td th:text="${producto.stock}"></td>
+                                    <td th:text="${producto.SKU}"></td>
+                                    <td th:text="${producto.categoria.nombreCategoria}"></td>
+                                    <td class="d-flex justify-content-evenly">
+                                        <a th:href="@{/productos/} + ${producto.idProducto} + @{/show}" class="btn btn-success">Ver</a>
+                                        <a th:href="@{/productos/} + ${producto.idProducto} + @{/edit}" class="btn btn-warning">Editar</a>
+                                        <form th:action="@{/productos/} + ${producto.idProducto}" th:method="delete" th:object="${producto}">
+                                            <button class="btn btn-danger">Eliminar</button>
+                                        </form>
+                                    </td>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div th:if="${productos == null or productos.empty}">
+                            La lista de productos está vacía.
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
         </div>
-        <div th:if="${productos == null or productos.empty}">
-            La lista de personas está vacía
-        </div>
+
+        <footer th:replace="~{plantilla/layout :: footer}"></footer>
     </body>
 </html>
