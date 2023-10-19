@@ -49,7 +49,7 @@
                                     <th scope="col"></th>
                                 </thead>
 
-                                <tbody th:each="producto: ${productos}">
+                                <tbody th:each="producto: ${productos}" pages:paginate="3">
                                     <td th:text="${producto.nombreProducto}"></td>
                                     <td th:text="${producto.descripcionProducto}"></td>
                                     <td th:text="${producto.marcaProducto}"></td>
