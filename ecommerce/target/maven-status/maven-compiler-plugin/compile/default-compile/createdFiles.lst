@@ -8,4 +8,3 @@ edu\unam\ecommerce\EcommerceApplication.class
 edu\unam\ecommerce\modelo\Categoria.class
 edu\unam\ecommerce\controladores\ProductoController.class
 edu\unam\ecommerce\servicios\CategoriaServicio.class
-edu\unam\ecommerce\servicios\UploadFileService.class

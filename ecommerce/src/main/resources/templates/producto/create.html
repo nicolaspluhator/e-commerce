@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="plantilla/layout :: head">
+    <head th:replace="~{plantilla/layout :: head}">
         <title>Ecommerce - Crear Producto</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <header th:replace="plantilla/layout :: header"></header>
+        <header th:replace="~{plantilla/layout :: header}"></header>
         <div class="container-fluid my-4">
             <main class="row m-4">
                 <div class="col card">
@@ -58,6 +58,6 @@
                 </div>
             </main>
         </div>
-        <footer th:replace="plantilla/layout :: footer"></footer>
+        <footer th:replace="~{plantilla/layout :: footer}"></footer>
     </body>
 </html>

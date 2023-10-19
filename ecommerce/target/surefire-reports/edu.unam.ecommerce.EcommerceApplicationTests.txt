@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.unam.ecommerce.EcommerceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.654 s - in edu.unam.ecommerce.EcommerceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.085 s - in edu.unam.ecommerce.EcommerceApplicationTests
