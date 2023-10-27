@@ -251,8 +251,4 @@ Una vez en la página de listado de categorias (Referirse al caso de uso Listar 
 
 ---
 
-## ~~Retrospectiva~~
-
----
-
 [Ir al índice](#indice)
