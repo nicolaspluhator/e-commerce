@@ -4,16 +4,14 @@
     <head th:fragment="head">
         <title>E-commerce</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;700;900&display=swap" rel="stylesheet">  
         <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-        <!--link href="/webjars/font-awesome/css/all.min.css"/-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/> 
         <script src="/webjars/jquery/jquery.min.css"></script>
         <script src="/webjars/popper.js/umd/popper.min.css"></script>
         <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;700;900&display=swap" rel="stylesheet">
 
     </head>
     <body>
@@ -34,6 +32,9 @@
                           </li>
                           <li class="nav-item px-3">
                             <a class="nav-link" th:href="@{/categorias}">CATEGORIAS</a>
+                          </li>
+                          <li class="nav-item px-3">
+                            <a class="nav-link" th:href="@{/ingresos}">INGRESOS</a>
                           </li>
                         </ul>
                     </div>

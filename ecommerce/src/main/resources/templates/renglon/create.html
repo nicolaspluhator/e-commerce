@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{plantilla/layout :: head}">
+        <title>Ecommerce - Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<body>
+    <header th:replace="~{plantilla/layout :: header}"></header>
+
+    <div class="container-fluid my-4">
+        <main class="row m-4">
+            <div class="col card">
+                <div class="row">
+                    <div class="card-header">
+                        <h2 th:text="'Ver Ingreso'+ ' ' + ${ingreso.idTransaccion} + ' : Agregar Renglon'" class="h2"></h2>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col">
+                        <form th:action="@{/ingresos/add}" method="post" th:object="${renglon}">
+                            <br/>
+                            <input type="hidden" name="transaccion" th:value="${ingreso.idTransaccion}">
+                            <select name="producto" class="form-select" aria-label="Select de Productos">
+                                <option value = "0" selected>-- Seleccione un Producto --</option>
+                                <option th:each="producto: ${productos}" th:value="${producto.idProducto}" th:text="${producto.nombreProducto}"></option>
+                              </select>
+                            <br/>
+                            <label class="form-label" for="precioUnidad">Precio unitario:</label>
+                            <input class="form-control" type="text" name="precioUnidad" th:field="*{precioUnidad}"/>
+                            <br/>
+                            <label class="form-label" for="cantidad">Cantidad: </label>
+                            <input class="form-control" type="text" name="cantidad" th:field="*{cantidad}"/>
+                            <br/>
+                            <div class="text-end">
+                                <input class="btn btn-primary" type="submit" name="guardar" value="Agregar"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer th:replace="~{plantilla/layout :: footer}"></footer>
+</body>
+</html>
