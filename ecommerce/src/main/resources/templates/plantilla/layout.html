@@ -9,15 +9,15 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;700;900&display=swap" rel="stylesheet">  
         <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-        <script src="/webjars/jquery/jquery.min.css"></script>
-        <script src="/webjars/popper.js/umd/popper.min.css"></script>
-        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+        <script th:src="@{/webjars/jquery/jquery.min.css}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.css}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
     </head>
     <body>
        <header th:fragment="header">
            <h1 class="my-5 text-center"><span class="text-warning">E</span>-commerce</h1>
-            <nav class="nav navbar navbar-expand-lg bg-warning">
+            <nav class="nav navbar navbar-expand-lg bg-warning sticky-top">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
