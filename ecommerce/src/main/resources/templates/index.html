@@ -12,7 +12,7 @@
             <div class="row row-cols-1 row-cols-md-4">
                 <div class="col-3 pt-4" th:each="producto: ${productos}">
                     <div class="card border-warning h-100" style="width: 18rem;">
-                        <img th:src="@{'/images/' + ${producto.imagen}}" 
+                        <img th:src="@{'/images/' + ${producto.imagen}" 
                             class="img-thumbnail"  
                             th:alt="${producto.imagen}"
                             width="400" height="300">
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        
+
         <footer th:replace="~{plantilla/layout :: footer}"></footer>
     </body>
 </html>

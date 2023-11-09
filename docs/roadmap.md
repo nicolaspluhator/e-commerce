@@ -39,22 +39,7 @@ En esta entrega contará con el **CRUD de los ingresos**.
 ---
 
 ## Iteración 3
-Para la iteración 3 quiero desarrollar el módulo de **clientes**, siendo este muy importante ya que será las primeras interacciones que tendremos con nuestros compradores.
-En esta entrega contará con el **CRUD de clientes**.
-
-### Historias de usuario a desarrollar
-- Como _**cliente**_, quiero leer mis productos para poder revisar lo que está disponible actualmente en el sitio.
-- Como _**cliente**_, quiero leer los productos ordenados por su categoría para poder revisar cuales son las disponibles.
-
-- Como _**cliente**_, quiero ver la información correspondiente a mi cuenta.
-- Como  _**cliente**_, quiero crear una cuenta para poder utilizar las funcionalidades de la página.
-- Como  _**cliente**_, quiero actualizar una cuenta para poder corregir la información de la cuenta.
-- Como  _**cliente**_, quiero eliminar una cuenta para dar de baja mi usuario.
-
----
-
-## Iteración 4
-Para la iteración 4 quiero desarrollar el módulo de **ventas**, de esta manera poder llever una gestión de las ventas efectuadas.
+Para la iteración 3 quiero desarrollar el módulo de **ventas**, de esta manera poder llever una gestión de las ventas efectuadas.
 En esta entrega contará con el **CRUD de ventas, así también como la elavoración de informes**
 
 ### Historias de usuario a desarrollar
@@ -62,6 +47,25 @@ En esta entrega contará con el **CRUD de ventas, así también como la elavorac
 - Como _**comerciante**_, quiero crear una venta para poder realizar el regsitro de una venta efectuada.
 - Como _**comerciante**_, quiero editar una venta para poder corregir cuando haya un error en una venta.
 - Como _**comerciante**_, quiero eliminar una venta para cuando se cancele una venta.
+
+---
+
+## Iteración 4
+Para la iteración 4 quiero desarrollar el módulo de **clientes** y **proveedores**, siendo este muy importante ya que será las primeras interacciones que tendremos con nuestros compradores y vendedores.
+En esta entrega contará con el **CRUD de clientes** y **CRUD de proveedores**.
+
+### Historias de usuario a desarrollar
+- Como _**cliente**_, quiero leer mis productos para poder revisar lo que está disponible actualmente en el sitio.
+- Como _**cliente**_, quiero leer los productos ordenados por su categoría para poder revisar cuales son las disponibles.
+- Como _**cliente**_, quiero ver la información correspondiente a mi cuenta.
+- Como  _**cliente**_, quiero crear una cuenta para poder utilizar las funcionalidades de la página.
+- Como  _**cliente**_, quiero actualizar una cuenta para poder corregir la información de la cuenta.
+- Como  _**cliente**_, quiero eliminar una cuenta para dar de baja mi usuario.
+- Como _**comerciante**_, quiero leer los proveedores para poder visualizar los proveedores que tengo en mi sistema.
+- Como _**comerciante**_, quiero ver un proveedor para poder ver detalladamente sus datos.
+- Como _**comerciante**_, quiero crear un proveedor para poder registrar un nuevo proveedor de mi tienda.
+- Como _**comerciante**_, quiero actualizar un proveedor para poder corregir aquella información erronea.
+- Como _**comerciante**_, quiero eliminar un proveedor para dar de baja un proveedor en caso de haber sido creado por error.
 
 ---
 
