@@ -1,7 +1,11 @@
 package edu.unam.ecommerce.repositorios;
 
+import edu.unam.ecommerce.modelo.Tipo;
 import edu.unam.ecommerce.modelo.Transaccion;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -13,4 +17,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @Repository
 public interface TransaccionRepositorio extends JpaRepository<Transaccion, Integer> {
 
+    /**
+     * Esta funcion devolvera todas las transacciones segun su estado.
+     * Los estados posibles son: COMPRA - VENTA
+     * 
+     * @param tipo donde puede ser COMPRA O VENTA.
+     * @return Listado de Transacciones
+     */
+    List<Transaccion> findAllByTipo(Tipo tipo);
 }

@@ -59,9 +59,40 @@
                                     <td class="d-flex justify-content-evenly">
                                         <a th:href="@{/productos/} + ${producto.idProducto} + @{/show}" class="btn btn-success">Ver</a>
                                         <a th:href="@{/productos/} + ${producto.idProducto} + @{/edit}" class="btn btn-warning">Editar</a>
-                                        <form th:action="@{/productos/} + ${producto.idProducto}" th:method="delete" th:object="${producto}">
+                                        <!--form th:action="@{/productos/} + ${producto.idProducto}" th:method="delete" th:object="${producto}">
                                             <button class="btn btn-danger">Eliminar</button>
-                                        </form>
+                                        </form-->
+                                        <a data-bs-toggle="modal" 
+                                        data-row="${producto}"
+                                        th:attr="data-bs-target='#modal-delete'+${producto.idProducto }" 
+                                        class="btn btn-danger">Eliminar</a> 
+                                            <!-- The Modal -->
+                                            <div th:fragment="modal" class="modal fade" th:id="modal-delete+${producto.idProducto}" tabindex="-1">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                            
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                    <h4 class="modal-title">Borrar producto</h4>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                    </div>
+                                            
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                    ¿Estas seguro que deseas dar de baja el producto "<span th:text="${producto.nombreProducto}"></span>"?
+                                                    </div>
+                                            
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                        <form th:action="@{/productos/} + ${producto.idProducto}" th:method="delete" th:object="${producto}">
+                                                            <button class="btn btn-primary">Aceptar</button>
+                                                        </form>
+                                                    </div>
+                                            
+                                                </div>
+                                                </div>
+                                            </div>
                                     </td>
                                 </tbody>
                             </table>

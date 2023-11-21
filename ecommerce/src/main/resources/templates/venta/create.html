@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{plantilla/layout :: head}">
+        <title>Ecommerce - Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<body>
+    <header th:replace="~{plantilla/layout :: header}"></header>
+
+    <div class="container-fluid my-4">
+        <main class="row m-4">
+            <div class="col card">
+                <div class="row">
+                    <div class="card-header">
+                        <h2 class="h2 p-3">Registrar una Venta</h2>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col">
+                        <form th:action="@{/ventas}" method="post" th:object="${venta}">
+                            <br/>
+                            <label class="form-label" for="nroFactura">N° Factura:</label>
+                            <input class="form-control" type="text" name="nroFactura" th:field="*{nroFactura}"/>
+                            <br/>
+                            <label class="form-label" for="fecha">Fecha: </label>
+                            <input class="form-control" type="date" name="fecha" th:field="*{fecha}"/>
+                            <br/>
+                            <div class="text-end">
+                                <input class="btn btn-primary" type="submit" name="guardar" value="Guardar"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer th:replace="~{plantilla/layout :: footer}"></footer>
+</body>
+</html>

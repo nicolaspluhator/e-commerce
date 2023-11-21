@@ -38,7 +38,7 @@ public class IngresoController {
     /**
      * Constructor del Controlador de Ingresos
      * 
-     * @param transaccionServicio
+     * @param transaccionServicio Servicio de Transaccion.
      */
     public IngresoController(TransaccionServicio transaccionServicio) {
         this.transaccionServicio = transaccionServicio;
@@ -47,12 +47,12 @@ public class IngresoController {
     /**
      * Ruta principal de los ingresos.
      * 
-     * @param model
+     * @param model model de la vista.
      * @return Vista con Listado de los Ingresos.
      */
     @GetMapping("/ingresos")
     public String index(Model model) {
-        var ingresos = transaccionServicio.listarTransaccion();
+        var ingresos = transaccionServicio.listarIngresos();
         model.addAttribute("ingresos", ingresos);
         return "ingreso/index";
     }
@@ -60,7 +60,7 @@ public class IngresoController {
     /**
      * Ruta para crear un nuevo Ingreso.
      * 
-     * @param model
+     * @param model model de la vista.
      * @return Vista con formulario para crear un Ingreso.
      */
     @GetMapping("/ingresos/create")
@@ -73,11 +73,16 @@ public class IngresoController {
     /**
      * Ruta para almacenar el nuevo Ingreso.
      * 
-     * @param transaccion
+     * @param transaccion ingreso a almacenar.
      * @return Redirije al listado principal.
      */
     @PostMapping("/ingresos")
     public String store(@Valid Transaccion transaccion) {
+        Date fecha = transaccion.getFecha();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
+        transaccion.setFecha(calendar.getTime());
         transaccion.setEstado(Estado.INICIADA);
         transaccion.setTipo(Tipo.COMPRA);
         transaccionServicio.agregarTransaccion(transaccion);
@@ -87,7 +92,7 @@ public class IngresoController {
     /**
      * Ruta para mostrar en detalle una Transaccion.
      * 
-     * @param model
+     * @param model model de la vista.
      * @param id    de la Transaccion.
      * @return Vista al show.
      */
@@ -115,8 +120,8 @@ public class IngresoController {
     /**
      * Ruta para editar una Transaccion.
      * 
-     * @param model
-     * @param id
+     * @param model model de la vista.
+     * @param id    identificador del ingreso a editar
      * @return Vista de edit.
      */
     @GetMapping("/ingresos/{id}/edit")
@@ -129,8 +134,8 @@ public class IngresoController {
     /**
      * Ruta para actualizar una Transaccion.
      * 
-     * @param ingreso
-     * @param id
+     * @param ingreso ingreso a editar.
+     * @param id      identificador del ingreso a editar.
      * @return Redirije al listado de Transacciones.
      */
     @PutMapping("/ingresos/{id}")
@@ -147,7 +152,7 @@ public class IngresoController {
     /**
      * Ruta para eliminar una Transaccion.
      * 
-     * @param id
+     * @param id identificador del ingreso a dar de baja.
      * @return Redirije al listado de Transacciones.
      */
     @DeleteMapping("/ingresos/{id}")

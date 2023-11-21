@@ -19,54 +19,56 @@ public class ProductoServicio {
 
     @Autowired
     ProductoRepositorio productoRepositorio;
-    
+
     /**
-    * Constructor de la ProductoServicio
-    * @param productoRepositorio Es el repositorio encargado de las operaciones CRUD de Productos.
-    */
-    public ProductoServicio(ProductoRepositorio productoRepositorio){
+     * Constructor de la ProductoServicio
+     * 
+     * @param productoRepositorio Es el repositorio encargado de las operaciones
+     *                            CRUD de Productos.
+     */
+    public ProductoServicio(ProductoRepositorio productoRepositorio) {
         this.productoRepositorio = productoRepositorio;
     }
-    
+
     /**
-    * Nos agregara un nuevo Producto.
-    * 
-    * @param producto Es el producto que sera creado.
-    * 
-    */
-    public void agregarProducto(Producto producto){ 
+     * Nos agregara un nuevo Producto.
+     * 
+     * @param producto Es el producto que sera creado.
+     * 
+     */
+    public void agregarProducto(Producto producto) {
         productoRepositorio.save(producto);
     }
-    
+
     /**
-    * Nos devolvera un listado con todos los productos activos.
-    * 
-    * @return Listado de Productos.
-    * 
-    */
-    public List<Producto> buscarProductos(){
+     * Nos devolvera un listado con todos los productos activos.
+     * 
+     * @return Listado de Productos.
+     * 
+     */
+    public List<Producto> buscarProductos() {
         return productoRepositorio.findAllByEstado(true);
     }
-    
+
     /**
-    * Nos devolvera un Producto.
-    * 
-    * @param id Es el identificador del Producto buscado.
-    * @return Producto Nos devuelve el Producto buscado.
-    * 
-    */
-    public Producto buscarProductoPorId(int id){
+     * Nos devolvera un Producto.
+     * 
+     * @param id Es el identificador del Producto buscado.
+     * @return Producto Nos devuelve el Producto buscado.
+     * 
+     */
+    public Producto buscarProductoPorId(int id) {
         return productoRepositorio.findById(id).get();
     }
-    
+
     /**
-    * Nos actualizara un Producto.
-    * 
-    * @param id Es el identificador del Producto.
-    * @param producto Es el producto que sera editado.
-    * 
-    */
-    public void actualizarProductoPorId(int id, Producto producto){
+     * Nos actualizara un Producto.
+     * 
+     * @param id       Es el identificador del Producto.
+     * @param producto Es el producto que sera editado.
+     * 
+     */
+    public void actualizarProductoPorId(int id, Producto producto) {
         productoRepositorio.findById(id).ifPresent(productoObtenido -> {
             productoObtenido.setNombreProducto(producto.getNombreProducto());
             productoObtenido.setDescripcionProducto(producto.getDescripcionProducto());
@@ -79,19 +81,29 @@ public class ProductoServicio {
             productoRepositorio.save(productoObtenido);
         });
     }
-    
+
     /**
-    * Nos dara de baja un Producto.
-    * 
-    * @param id Es el producto que sera dado de baja.
-    * 
-    */
-    public void borrarProductoPorId(int id){
-        productoRepositorio.findById(id).ifPresent(productoObtenido->{
-            //productoRepositorio.deleteById(productoObtenido.getIdProducto());
+     * Nos dara de baja un Producto.
+     * 
+     * @param id Es el producto que sera dado de baja.
+     * 
+     */
+    public void borrarProductoPorId(int id) {
+        productoRepositorio.findById(id).ifPresent(productoObtenido -> {
+            // productoRepositorio.deleteById(productoObtenido.getIdProducto());
             productoObtenido.setEstado(false);
             productoRepositorio.save(productoObtenido);
         });
+    }
+
+    /**
+     * Nos devolvera todos los productos que tengan Stock mayor a cero y que a su
+     * vez no estan dados de baja.
+     * 
+     * @return Listado de Productos.
+     */
+    public List<Producto> obtenerProductosConStockMayorACeroYEstadoActivo() {
+        return productoRepositorio.findByStockGreaterThanAndEstadoIsTrue(0);
     }
 
 }
