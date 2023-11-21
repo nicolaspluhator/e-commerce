@@ -39,7 +39,7 @@ public class TransaccionServicio {
     /**
      * Agrega una nueva transaccion.
      * 
-     * @param transaccion
+     * @param transaccion Transaccion a almacenar.
      */
     public void agregarTransaccion(Transaccion transaccion) {
         transaccionRepositorio.save(transaccion);
@@ -55,9 +55,27 @@ public class TransaccionServicio {
     }
 
     /**
+     * Devuelve una lista con todos los ingresos.
+     * 
+     * @return Listado de Transacciones de tipo COMPRA.
+     */
+    public List<Transaccion> listarIngresos() {
+        return transaccionRepositorio.findAllByTipo(Tipo.COMPRA);
+    }
+
+    /**
+     * Devuelve una lista con todas las Ventas.
+     * 
+     * @return Listado de Transacciones de tipo VENTA.
+     */
+    public List<Transaccion> listarVentas() {
+        return transaccionRepositorio.findAllByTipo(Tipo.VENTA);
+    }
+
+    /**
      * Devuelve una Transaccion que coincida con el id pasado por parametro.
      * 
-     * @param id
+     * @param id identificador de la transaccion a buscar.
      * @return Transaccion buscada
      */
     public Transaccion buscarTransaccionPorId(int id) {
@@ -67,8 +85,8 @@ public class TransaccionServicio {
     /**
      * Actualiza una transaccion.
      * 
-     * @param id
-     * @param transaccion
+     * @param id          identificador de la transaccion a actualizar.
+     * @param transaccion transaccion a actualizar.
      */
     public void actualizarTransaccion(int id, Transaccion transaccion) {
         transaccionRepositorio.findById(id).ifPresent(transaccionObtenida -> {
@@ -84,7 +102,7 @@ public class TransaccionServicio {
      * Elimina una transaccion si esta no tiene renglones asociados. Caso contratio
      * lo colocará en estado "CANCELADA".
      * 
-     * @param id
+     * @param id identificador de la transaccion.
      */
     public void eliminarTransaccion(int id) {
         Transaccion transaccion = transaccionRepositorio.findById(id).get();
@@ -100,7 +118,7 @@ public class TransaccionServicio {
      * Cambia el estado de la Transaccion a FINALIZADA y actualiza el stock de los
      * productos.
      * 
-     * @param transaccion
+     * @param transaccion transaccion a finalizar.
      */
     public void finalizarTransaccion(Transaccion transaccion) {
         int cantidad = 0;
@@ -109,6 +127,16 @@ public class TransaccionServicio {
             for (TransaccionProducto renglon : transaccion.getRenglones()) {
                 var producto = productoServicio.buscarProductoPorId(renglon.getProducto().getIdProducto());
                 cantidad = producto.getStock() + renglon.getCantidad();
+                producto.setStock(cantidad);
+                productoServicio.actualizarProductoPorId(producto.getIdProducto(), producto);
+                cantidad = 0;
+            }
+            transaccion.setEstado(Estado.FINALIZADA);
+            this.actualizarTransaccion(transaccion.getIdTransaccion(), transaccion);
+        } else {
+            for (TransaccionProducto renglon : transaccion.getRenglones()) {
+                var producto = productoServicio.buscarProductoPorId(renglon.getProducto().getIdProducto());
+                cantidad = producto.getStock() - renglon.getCantidad();
                 producto.setStock(cantidad);
                 productoServicio.actualizarProductoPorId(producto.getIdProducto(), producto);
                 cantidad = 0;

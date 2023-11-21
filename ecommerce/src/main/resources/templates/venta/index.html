@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{plantilla/layout :: head}">
+        <title>Ecommerce - Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<body>
+    <header th:replace="~{plantilla/layout :: header}"></header>
+
+    <div class="container-fluid my-4">
+        <section class="row my-4" aria-label="Nueva Venta">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2 class="h1">Crear una Venta</h2>
+                        </div>
+                        <p class="card-text">
+                            Si desea agregar una nueva Venta, haga click en el botón de "Nueva Venta".
+                        </p>
+                        <div class="text-end">
+                            <a th:href="@{/ventas/create}" class="btn btn-primary"><i class="fas fa-plus"></i> Nueva Venta</a>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </section>
+
+        <main class="row my-4">
+            <div class="row">
+                <div class="col">
+                    <h2 class="h2">Listado de Ventas</h2>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <div th:if="${ventas != null and !ventas.empty}">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <th scope="col">ID</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">N° Factura</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col"></th>
+                            </thead>
+                            <tbody th:each="venta: ${ventas}">
+                                <td scope="row" th:text="${venta.idTransaccion}"></td>
+                                <td th:text="${venta.fecha}"></td>
+                                <td th:text="${venta.nroFactura}"></td>
+                                <td>
+                                   
+                                    <div th:switch="${venta.estado}">
+                                        <span th:case="${T(edu.unam.ecommerce.modelo.Estado).INICIADA}"
+                                        class="badge rounded-pill text-bg-primary" th:text="${venta.estado}">Alert</span>
+                                        <span th:case="${T(edu.unam.ecommerce.modelo.Estado).CANCELADA}"
+                                        class="badge rounded-pill text-bg-danger" th:text="${venta.estado}">Warning</span>
+                                        <span th:case="${T(edu.unam.ecommerce.modelo.Estado).FINALIZADA}"
+                                        class="badge rounded-pill text-bg-success" th:text="${venta.estado}">Caution</span>
+                                        <span th:case="${T(edu.unam.ecommerce.modelo.Estado).PENDIENTE}"
+                                        class="badge rounded-pill text-bg-warning" th:text="${venta.estado}">Caution</span>
+                                    </div>
+                                   
+                                </td>
+                                <td class="d-flex justify-content-evenly">
+                                    <a th:href="@{/ventas/} + ${venta.idTransaccion} + @{/show}" class="btn btn-success">Ver</a>
+
+                                    <a th:if="${venta.getEstado() != T(edu.unam.ecommerce.modelo.Estado).CANCELADA && venta.getEstado() != T(edu.unam.ecommerce.modelo.Estado).FINALIZADA}" 
+                                    th:href="@{/ventas/} + ${venta.idTransaccion} + @{/edit}" 
+                                    class="btn btn-warning">Editar</a>
+                                    
+                                    <a data-bs-toggle="modal" 
+                                    data-row="${venta}"
+                                    th:if="${venta.getEstado() != T(edu.unam.ecommerce.modelo.Estado).CANCELADA && venta.getEstado() != T(edu.unam.ecommerce.modelo.Estado).FINALIZADA}"
+                                    th:attr="data-bs-target='#modal-delete'+${venta.idTransaccion }" 
+                                    class="btn btn-danger">Eliminar</a> 
+                                        <!-- The Modal -->
+                                        <div th:fragment="modal" class="modal fade" th:id="modal-delete+${venta.idTransaccion}" tabindex="-1">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                        
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                <h4 class="modal-title">Dar de baja venta</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                </div>
+                                        
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                ¿Estas seguro que deseas dar de baja la venta "<span th:text="${venta.idTransaccion}"></span>"?
+                                                </div>
+                                        
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                    <form 
+                                                    th:action="@{/ventas/} + ${venta.idTransaccion}" 
+                                                    th:method="delete" 
+                                                    th:object="${venta}">
+                                                        <button class="btn btn-primary">Aceptar</button>
+                                                    </form>
+                                                </div>
+                                        
+                                            </div>
+                                            </div>
+                                        </div>
+                                </td>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div th:if="${ventas == null or ventas.empty}">
+                        <table class="table table-striped table-hover">
+                            <tbody>
+                                <td>La lista de ventas está vacía</td>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer th:replace="~{plantilla/layout :: footer}"></footer>
+</body>
+</html>

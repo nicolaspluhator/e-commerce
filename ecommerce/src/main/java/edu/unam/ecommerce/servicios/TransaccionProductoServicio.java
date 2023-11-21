@@ -33,7 +33,7 @@ public class TransaccionProductoServicio {
     /**
      * Agrega un nuevo renglon a una Transaccion.
      * 
-     * @param transaccionProducto
+     * @param transaccionProducto renglon a agregar.
      */
     public void agregarRenglon(TransaccionProducto transaccionProducto) {
         transaccionProducto.getTransaccion().getRenglones().add(transaccionProducto);
@@ -53,8 +53,8 @@ public class TransaccionProductoServicio {
     /**
      * Retorna un renglon buscado por su identificador.
      * 
-     * @param id
-     * @return TransaccionProducto.
+     * @param id identificador del renglon a buscar
+     * @return TransaccionProducto renglon.
      */
     public TransaccionProducto buscarRenglonPorId(int id) {
         return transaccionProductoRepositorio.findById(id).get();
@@ -63,8 +63,8 @@ public class TransaccionProductoServicio {
     /**
      * Actualiza los valores de un renglon.
      * 
-     * @param id
-     * @param transaccionProducto
+     * @param id                  identificador del renglon a editar.
+     * @param transaccionProducto renglon a actualizar.
      */
     public void actualizarRenglon(int id, TransaccionProducto transaccionProducto) {
         transaccionProductoRepositorio.findById(id).ifPresent(transaccionProductoObtenido -> {
@@ -79,7 +79,7 @@ public class TransaccionProductoServicio {
     /**
      * Elimina un renglon.
      * 
-     * @param id
+     * @param id identificador del renglon.
      */
     public void eliminarRenglon(int id) {
         TransaccionProducto renglon = transaccionProductoRepositorio.findById(id).get();

@@ -2,6 +2,7 @@ package edu.unam.ecommerce.modelo;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.*;
 
 /**
@@ -22,7 +23,7 @@ public class TransaccionProducto {
     private Integer idTP;
     @NotNull
     private float precioUnidad;
-    @NotNull
+    @PositiveOrZero
     private Integer cantidad;
     @NotNull
     @ManyToOne

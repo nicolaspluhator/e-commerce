@@ -41,8 +41,8 @@ public class RenglonController {
     /**
      * Ruta para agregar un renglon.
      * 
-     * @param model
-     * @param idTransaccion
+     * @param model         model de la vista.
+     * @param idTransaccion identificador del ingreso.
      * @return Vista create.
      */
     @GetMapping("/ingresos/{idTransaccion}/add")
@@ -59,7 +59,7 @@ public class RenglonController {
     /**
      * Ruta para almacenar un renglon.
      * 
-     * @param renglon.
+     * @param renglon a almacenar.
      * @return Vista show de Transaccion.
      */
     @PostMapping("/ingresos/add")
@@ -71,9 +71,9 @@ public class RenglonController {
     /**
      * Ruta para editar un renglon.
      * 
-     * @param model
-     * @param idTransaccion
-     * @param idRenglon
+     * @param model         model de la vista.
+     * @param idTransaccion identificador del ingreso.
+     * @param idRenglon     identificador del renglon.
      * @return Vista edit.
      */
     @GetMapping("/ingresos/{idTransaccion}/edit/{idRenglon}")
@@ -88,9 +88,9 @@ public class RenglonController {
     /**
      * Ruta para actualizar un renglon.
      * 
-     * @param idTransaccion
-     * @param idRenglon
-     * @param renglon
+     * @param idTransaccion identificador del ingreso.
+     * @param idRenglon     identificador del renglon.
+     * @param renglon       renglon a editar.
      * @return Vista show de Transaccion.
      */
     @PutMapping("/ingresos/{idTransaccion}/update/{idRenglon}")
@@ -103,8 +103,8 @@ public class RenglonController {
     /**
      * Ruta para quitar un renglon.
      * 
-     * @param idTransaccion
-     * @param idRenglon
+     * @param idTransaccion identificador del ingreso.
+     * @param idRenglon     identificador del renglon.
      * @return Vista show de Transaccion.
      */
     @DeleteMapping("/ingresos/{idTransaccion}/revome/{idRenglon}")

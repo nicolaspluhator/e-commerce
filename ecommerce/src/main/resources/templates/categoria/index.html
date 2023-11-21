@@ -40,7 +40,7 @@
                     <div class="col">
                         <div th:if="${categorias != null and !categorias.empty}">
                             <table class="table table-striped table-hover">
-                                <thead>
+                                <thead class="table-dark">
                                     <th scope="col">ID</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Descripción</th>
@@ -52,9 +52,35 @@
                                     <td th:text="${categoria.descripcionCategoria}"></td>
                                     <td class="d-flex justify-content-evenly">
                                        <a th:href="@{/categorias/} + ${categoria.idCategoria} + @{/edit}" class="btn btn-warning"> <i class="fas fa-solid fa-pen-to-square"></i> Editar</a>
-                                        <form th:action="@{/categorias/} + ${categoria.idCategoria}" th:method="delete" th:object="${categoria}">
-                                            <button class="btn btn-danger">Eliminar</button>
-                                        </form>
+                                       <a data-bs-toggle="modal" data-row="${categoria}"
+                                       th:attr="data-bs-target='#modal-delete'+${categoria.idCategoria }" class="btn btn-danger">Eliminar</a> 
+                                        <!-- The Modal -->
+                                        <div th:fragment="modal" class="modal fade" th:id="modal-delete+${categoria.idCategoria}" tabindex="-1">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                        
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                <h4 class="modal-title">Borrar Categoria</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                </div>
+                                        
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                ¿Estas seguro que deseas borrar la categoria "<span th:text="${categoria.nombreCategoria}"></span>"?
+                                                </div>
+                                        
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                    <form th:action="@{/categorias/} + ${categoria.idCategoria}" th:method="delete" th:object="${categoria}">
+                                                        <button class="btn btn-primary">Aceptar</button>
+                                                    </form>
+                                                </div>
+                                        
+                                            </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tbody>
                             </table>
@@ -65,7 +91,6 @@
                     </div>
                 </div>
             </main>
-
         </div>
         
         <footer th:replace="~{plantilla/layout :: footer}"></footer>
