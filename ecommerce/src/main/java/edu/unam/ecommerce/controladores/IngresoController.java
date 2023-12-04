@@ -6,13 +6,16 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import edu.unam.ecommerce.modelo.Estado;
 import edu.unam.ecommerce.modelo.Tipo;
 import edu.unam.ecommerce.modelo.Transaccion;
+import edu.unam.ecommerce.servicios.ProveedorServicio;
 import edu.unam.ecommerce.servicios.TransaccionProductoServicio;
 import edu.unam.ecommerce.servicios.TransaccionServicio;
 import jakarta.validation.Valid;
@@ -34,6 +37,9 @@ public class IngresoController {
 
     @Autowired
     TransaccionProductoServicio renglon;
+
+    @Autowired
+    ProveedorServicio proveedorServicio;
 
     /**
      * Constructor del Controlador de Ingresos
@@ -66,6 +72,8 @@ public class IngresoController {
     @GetMapping("/ingresos/create")
     public String create(Model model) {
         var ingreso = new Transaccion();
+        var proveedores = proveedorServicio.listarProveedor();
+        model.addAttribute("proveedores", proveedores);
         model.addAttribute("ingreso", ingreso);
         return "ingreso/create";
     }
@@ -77,7 +85,12 @@ public class IngresoController {
      * @return Redirije al listado principal.
      */
     @PostMapping("/ingresos")
-    public String store(@Valid Transaccion transaccion) {
+    public String store(@Valid @ModelAttribute("ingreso") Transaccion transaccion, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            var proveedores = proveedorServicio.listarProveedor();
+            model.addAttribute("proveedores", proveedores);
+            return "ingreso/create";
+        }
         Date fecha = transaccion.getFecha();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(fecha);
@@ -127,6 +140,8 @@ public class IngresoController {
     @GetMapping("/ingresos/{id}/edit")
     public String edit(Model model, @PathVariable int id) {
         var ingreso = transaccionServicio.buscarTransaccionPorId(id);
+        var proveedores = proveedorServicio.listarProveedor();
+        model.addAttribute("proveedores", proveedores);
         model.addAttribute("ingreso", ingreso);
         return "ingreso/edit";
     }
@@ -139,7 +154,13 @@ public class IngresoController {
      * @return Redirije al listado de Transacciones.
      */
     @PutMapping("/ingresos/{id}")
-    public String update(@Valid Transaccion ingreso, @PathVariable int id) {
+    public String update(@Valid @ModelAttribute("ingreso") Transaccion ingreso, BindingResult result, Model model,
+            @PathVariable int id) {
+        if (result.hasErrors()) {
+            var proveedores = proveedorServicio.listarProveedor();
+            model.addAttribute("proveedores", proveedores);
+            return "ingreso/edit";
+        }
         Date fecha = ingreso.getFecha();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(fecha);

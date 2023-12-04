@@ -21,35 +21,42 @@
                                 <input type="hidden" name="idProducto" th:field="*{idProducto}"/>
                                 <br/>
                                 <label class="form-label" for="nombreProducto">Nombre:</label>
-                                <input class="form-control" type="text" name="nombreProducto" th:field="*{nombreProducto}"/>
+                                <input class="form-control" type="text" name="nombreProducto" th:field="*{nombreProducto}" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('nombreProducto')}" th:errors="*{nombreProducto}"></small>
                                 <br/>
                                 <label class="form-label" for="descripcionProducto">Descripción: </label>
-                                <input class="form-control" type="text" name="descripcionProducto" th:field="*{descripcionProducto}"/>
+                                <input class="form-control" type="text" name="descripcionProducto" th:field="*{descripcionProducto}" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('descripcionProducto')}" th:errors="*{descripcionProducto}"></small>
                                 <br/>
                                 <label class="form-label" for="marcaProducto">Marca: </label>
-                                <input class="form-control" type="text" name="marcaProducto" th:field="*{marcaProducto}"/>
+                                <input class="form-control" type="text" name="marcaProducto" th:field="*{marcaProducto}" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('marcaProducto')}" th:errors="*{marcaProducto}"></small>
                                 <br/>
                                 <label class="form-label" for="stock">Stock: </label>
-                                <input class="form-control" type="text" name="stock" th:field="*{stock}"/>
+                                <input class="form-control" type="text" name="stock" th:field="*{stock}" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></small>
                                 <br/>
                                 <label class="form-label" for="SKU">SKU: </label>
-                                <input class="form-control" type="text" name="SKU" th:field="*{SKU}"/>
+                                <input class="form-control" type="text" name="SKU" th:field="*{SKU}" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('SKU')}" th:errors="*{SKU}"></small>
                                 <br/>
                                 <label class="form-label" for="precio">Precio: </label>
-                                <input class="form-control" type="text" name="precio" th:field="*{precio}"/>
+                                <input class="form-control" type="text" name="precio" th:field="*{precio}" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></small>
                                 <br/>
                                 <div class="mb-3">
                                   <label class="form-label" for="imagen">Imagen: </label>
                                   <input class="form-control" type="file" name="file" id="imagen">
                                 </div>
                                 <br/>
-                                <select name="categoria" class="form-select" aria-label="Select de Categorias">
+                                <select name="categoria" class="form-select" aria-label="Select de Categorias" th:errorclass="'form-select is-invalid'" th:field="*{categoria}">
                                   <option value = "0">-- Seleccione una categoria --</option>
                                   <option th:each="categoria: ${categorias}" 
                                   th:value="${categoria.idCategoria}" 
                                   th:text="${categoria.nombreCategoria}" 
                                   th:selected="(${producto.getCategoria().idCategoria} == ${categoria.idCategoria})"></option>
                                 </select>
+                                <small class="invalid-feedback" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></small>
 
                                 <div class="text-end mt-2">
                                     <input class="btn btn-warning" type="submit" name="editar" value="Editar"/>

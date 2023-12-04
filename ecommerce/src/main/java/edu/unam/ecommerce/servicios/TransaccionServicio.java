@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.unam.ecommerce.modelo.Estado;
+import edu.unam.ecommerce.modelo.Proveedor;
+import edu.unam.ecommerce.modelo.Cliente;
 import edu.unam.ecommerce.modelo.Tipo;
 import edu.unam.ecommerce.modelo.Transaccion;
 import edu.unam.ecommerce.modelo.TransaccionProducto;
@@ -42,6 +44,16 @@ public class TransaccionServicio {
      * @param transaccion Transaccion a almacenar.
      */
     public void agregarTransaccion(Transaccion transaccion) {
+        if (transaccion.getCliente() == null) {
+            Proveedor proveedor = transaccion.getProveedor();
+            proveedor.getTransaccionesProveedor().add(transaccion);
+            transaccion.setProveedor(proveedor);
+        } else {
+            Cliente cliente = transaccion.getCliente();
+            cliente.getTransaccionesCliente().add(transaccion);
+            transaccion.setCliente(cliente);
+        }
+
         transaccionRepositorio.save(transaccion);
     }
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{plantilla/layout :: head}">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header th:replace="~{plantilla/layout :: header}"></header>
+
+        <div class="container-fluid my-4">
+            <main class="row m-4">
+                <div class="col card">
+                    <div class="row">
+                        <div class="card-header">
+                            <h2 class="h2 p-3">Editar un Cliente</h2>
+                        </div>
+                    </div>
+                    <div class="row m-2">
+                        <div class="col">
+                            <form th:action="@{/clientes/} + ${cliente.idCliente}" th:method="put" th:object="${cliente}">
+                                <input type="hidden" name="idCliente"/>
+                                <br/>
+                                <label class="form-label" for="nombreCliente">Nombre:</label>
+                                <input id="nombreCliente" type="text" name="nombreCliente" th:field="*{nombreCliente}" class="form-control" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('nombreCliente')}" th:errors="*{nombreCliente}"></small>
+                                <br/>
+                                <label class="form-label" for="apellidoCliente">Apellido:</label>
+                                <input id="apellidoCliente" type="text" name="apellidoCliente" th:field="*{apellidoCliente}" class="form-control" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('apellidoCliente')}" th:errors="*{apellidoCliente}"></small>
+                                <br/>
+                                <label class="form-label" for="dniCliente">D.N.I:</label>
+                                <input id="dniCliente" type="number" name="dniCliente" th:field="*{dniCliente}" class="form-control" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('dniCliente')}" th:errors="*{dniCliente}"></small>
+                                <br/>
+                                <label class="form-label" for="emailCliente">Email:</label>
+                                <input id="emailCliente" type="email" name="emailCliente" th:field="*{emailCliente}" class="form-control" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('emailCliente')}" th:errors="*{emailCliente}"></small>
+                                <br/>
+                                <label class="form-label" for="direccionCliente">Direccion: </label>
+                                <input id="direccionCliente" type="text" name="direccionCliente" th:field="*{direccionCliente}" class="form-control" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('direccionCliente')}" th:errors="*{direccionCliente}"></small>
+                                <br/>
+                                <label class="form-label" for="telefonoCliente">Telefono: </label>
+                                <input id="telefonoCliente" type="number" name="telefonoCliente" th:field="*{telefonoCliente}" class="form-control" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonoCliente')}" th:errors="*{telefonoCliente}"></small>
+                                <br/>
+
+                                <div class="text-end">
+                                    <input class="btn btn-warning" type="submit" name="editar" value="Editar"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <footer th:replace="~{plantilla/layout :: footer}"></footer>
+    </body>
+</html>

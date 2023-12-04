@@ -20,7 +20,7 @@
                     <div class="col">
                         <form th:action="@{/ventas/add}" method="post" th:object="${detalleVenta}">
                             <br/>
-                            <input type="hidden" name="transaccion" th:value="${venta.idTransaccion}" th:field="*{transaccion}">
+                            <input type="hidden" name="transaccion" th:value="${venta.idTransaccion}">
                             
                             <label class="form-label" for="producto">Seleccione un producto: </label>
                             <select name="producto" class="form-select" aria-label="Select de Productos">
@@ -29,11 +29,11 @@
                                 th:value="${producto.idProducto}" 
                                 th:text="${producto.nombreProducto}+ ' - Stock: '+ ${producto.stock}+ ' - Precio: '+ ${producto.precio}"></option>
                             </select>
-                            <small th:if="${#fields.hasErrors('producto')}" th:errors="*{producto}">Error en producto</small>
+                            <small th:if="${#fields.hasErrors('producto')}" th:errors="*{producto}" class="text-danger">Error en producto</small>
                             <br/>
                             <label class="form-label" for="cantidad">Cantidad: </label>
                             <input class="form-control" type="text" name="cantidad" th:field="*{cantidad}"/>
-                            <small th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}">Error en cantidad</small>
+                            <small th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}" class="text-danger">Error en cantidad</small>
                             <br/>
                             <div class="text-end">
                                 <input class="btn btn-primary" type="submit" name="guardar" value="Agregar"/>

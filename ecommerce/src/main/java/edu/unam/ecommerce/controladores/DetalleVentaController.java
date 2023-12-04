@@ -72,7 +72,14 @@ public class DetalleVentaController {
      * @return Redirije al show de la venta.
      */
     @PostMapping("/ventas/add")
-    public String store(@Valid TransaccionProducto renglon) {
+    public String store(@Valid TransaccionProducto renglon, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            var productos = productoServicio.obtenerProductosConStockMayorACeroYEstadoActivo();
+            model.addAttribute("venta", renglon.getTransaccion());
+            model.addAttribute("productos", productos);
+            model.addAttribute("detalleVenta", renglon);
+            return "detalle_venta/create";
+        }
         var precio = renglon.getProducto().getPrecio();
         renglon.setPrecioUnidad(precio);
         detalleVentaServicio.agregarRenglon(renglon);

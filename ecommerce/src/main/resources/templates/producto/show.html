@@ -11,7 +11,7 @@
 		<div class="card mt-4 p-3">
 			<div class="row">
 				<div class="col d-flex justify-content-center" th:if="${producto.imagen != null}">
-					<img th:src="@{'/images/' + ${producto.imagen}}" class="img-thumbnail" th:alt="${producto.imagen}" width="480" height="380">
+					<img th:src="@{'/uploads/' + ${producto.imagen}}" class="img-thumbnail" th:alt="${producto.imagen}" width="480" height="380">
 				</div>
 				<div class="col d-flex align-items-center" th:if="${producto.imagen == null}">
 					<p>Este producto no tiene imagen aún.</p>

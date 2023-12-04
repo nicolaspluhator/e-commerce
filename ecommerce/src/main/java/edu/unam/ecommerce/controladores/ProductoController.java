@@ -1,5 +1,6 @@
 package edu.unam.ecommerce.controladores;
 
+import edu.unam.ecommerce.EcommerceApplication;
 import edu.unam.ecommerce.modelo.Producto;
 import edu.unam.ecommerce.servicios.CategoriaServicio;
 import edu.unam.ecommerce.servicios.ProductoServicio;
@@ -10,10 +11,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,12 +32,12 @@ import org.springframework.web.multipart.MultipartFile;
  * 
  */
 @Controller
-@Slf4j
 public class ProductoController {
     public Path directorioImagenes = Paths.get("src//main//resources//static//images");
     public String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
-    // public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "//"
-    // + "uploads";
+
+    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "\\uploads";
+
     @Autowired
     private ProductoServicio productoServicio;
     @Autowired
@@ -91,27 +92,38 @@ public class ProductoController {
      * Es la funcion que nos almacenara nuestro nuevo producto.
      * 
      * @param producto Es el nuevo producto a guardar.
-     * @param imagen   Es la imagen del producto que vamos a guardar.
+     * @param result Es para validar los datos recibidos.
+     * @param model Es para mandar objetos a la vista.
+     * @param file   Es la imagen del producto que vamos a guardar.
      * @throws IOException Es por si sucede algun error en la carga de la imagen del
      *                     producto.
      * @return Nos redirigira al listado de productos visto en index.
      * 
      */
     @PostMapping("/productos")
-    public String store(@Valid @ModelAttribute Producto producto, @RequestParam("file") MultipartFile imagen)
+    public String store(@Valid @ModelAttribute Producto producto, BindingResult result, Model model,
+            @RequestParam(name = "file", required = false) MultipartFile file)
             throws IOException {
 
-        if (!imagen.isEmpty()) {
-            String uniqueFilename = UUID.randomUUID().toString() + "_" + imagen.getOriginalFilename();
-            StringBuilder fileNames = new StringBuilder();
-            Path fileNameAndPath = Paths.get(rutaAbsoluta, uniqueFilename);
-            // Path fileNameAndPath = Paths.get(rutaAbsoluta, imagen.getOriginalFilename());
-            // fileNames.append(imagen.getOriginalFilename());
-            fileNames.append(uniqueFilename);
-            Files.write(fileNameAndPath, imagen.getBytes());
-            String nombre = fileNames.toString();
-            producto.setImagen(nombre);
+        if (result.hasErrors()) {
+            var categorias = categoriaServicio.buscarCategorias();
+            model.addAttribute("categorias", categorias);
+            return "producto/create";
         }
+
+        if (!file.isEmpty()) {
+            String ruta = "C://Temp//uploads";
+
+            try {
+                byte[] bytes = file.getBytes();
+                Path rutaAbsoluta = Paths.get(ruta + "//" + file.getOriginalFilename());
+                Files.write(rutaAbsoluta, bytes);
+                producto.setImagen(file.getOriginalFilename());
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+        }
+
         productoServicio.agregarProducto(producto);
         return "redirect:/productos";
     }
@@ -158,26 +170,36 @@ public class ProductoController {
      * 
      * @param id       Es el identificador del producto a actualizar.
      * @param producto Es el producto con los datos a actualizar.
-     * @param imagen   Es la imagen del producto a actualizar.
+     * @param result Es para validar los datos recibidos.
+     * @param model Es para mandar objetos a la vista.
+     * @param file   Es la imagen del producto que vamos a guardar.
      * @throws IOException Es para manejar los errores que puedan ocurrir al subir
      *                     una imagen.
      * @return Nos redirige al listado de los productos visto en index.
      * 
      */
     @PutMapping("/productos/{id}")
-    public String update(@PathVariable int id, @Valid @ModelAttribute Producto producto,
-            @RequestParam("file") MultipartFile imagen) throws IOException {
+    public String update(@PathVariable int id, @Valid @ModelAttribute Producto producto, BindingResult result,
+            Model model,
+            @RequestParam("file") MultipartFile file) throws IOException {
 
-        if (!imagen.isEmpty()) {
-            String uniqueFilename = UUID.randomUUID().toString() + "_" + imagen.getOriginalFilename();
-            StringBuilder fileNames = new StringBuilder();
-            Path fileNameAndPath = Paths.get(rutaAbsoluta, uniqueFilename);
-            // Path fileNameAndPath = Paths.get(rutaAbsoluta, imagen.getOriginalFilename());
-            // fileNames.append(imagen.getOriginalFilename());
-            fileNames.append(uniqueFilename);
-            Files.write(fileNameAndPath, imagen.getBytes());
-            String nombre = fileNames.toString();
-            producto.setImagen(nombre);
+        if (result.hasErrors()) {
+            var categorias = categoriaServicio.buscarCategorias();
+            model.addAttribute("categorias", categorias);
+            return "producto/edit";
+        }
+
+        if (!file.isEmpty()) {
+            String ruta = "C://Temp//uploads";
+
+            try {
+                byte[] bytes = file.getBytes();
+                Path rutaAbsoluta = Paths.get(ruta + "//" + file.getOriginalFilename());
+                Files.write(rutaAbsoluta, bytes);
+                producto.setImagen(file.getOriginalFilename());
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
         }
 
         productoServicio.actualizarProductoPorId(id, producto);

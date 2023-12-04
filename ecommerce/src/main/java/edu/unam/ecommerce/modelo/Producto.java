@@ -2,6 +2,7 @@ package edu.unam.ecommerce.modelo;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
@@ -36,7 +37,7 @@ public class Producto {
      * nombreProducto es el nombre del Producto que sera mostrado en la cabecera de
      * la pagina.
      */
-    @NotNull
+    @NotEmpty(message = "El nombre del producto es requerido")
     @Size(max = 40)
     @Column(length = 40)
     private String nombreProducto;
@@ -45,15 +46,14 @@ public class Producto {
      * descripcionProducto es una descripcion opcional que se puede agregar para
      * brindar mas informacion a los clientes.
      */
-    @NotBlank
-    @Size(min = 3, max = 255)
+    @Size(max = 150, message = "El tamaño de la descripcion no debe ser superior a 150 caracteres")
     @Column(length = 255)
     private String descripcionProducto;
 
     /**
      * marcaProducto es la marca del producto.
      */
-    @NotNull
+    @NotEmpty(message = "La marca del producto es requerida")
     @Size(max = 40)
     @Column(length = 40)
     private String marcaProducto;
@@ -61,13 +61,14 @@ public class Producto {
     /**
      * stock es la cantidad de Productos que se posee.
      */
+    @NotNull(message = "El valor de stock es requerido")
     @PositiveOrZero(message = "El stock debe ser un valor mayor a cero.")
     private Integer stock;
 
     /**
      * SKU es el codigo unico de Producto.
      */
-    @NotBlank
+    @NotEmpty(message = "El codigo SKU del articulo es requerido.")
     @Size(min = 5, max = 30)
     private String SKU;
 
@@ -81,7 +82,7 @@ public class Producto {
     /**
      * precio Representa el valor del producto.
      */
-    @NotNull
+    @NotNull(message = "El valor del producto tiene que ser mayor a 0")
     private float precio;
 
     /**
@@ -107,7 +108,7 @@ public class Producto {
      * 
      * @see edu.unam.ecommerce.modelo.Categoria
      */
-    @NotNull
+    @NotNull(message = "Debe seleccionar al menos una categoria")
     @ManyToOne
     @JoinColumn(name = "categoria", nullable = false)
     private Categoria categoria;

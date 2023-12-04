@@ -6,8 +6,10 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import edu.unam.ecommerce.modelo.Estado;
 import edu.unam.ecommerce.modelo.Tipo;
 import edu.unam.ecommerce.modelo.Transaccion;
+import edu.unam.ecommerce.servicios.ClienteServicio;
 import edu.unam.ecommerce.servicios.TransaccionProductoServicio;
 import edu.unam.ecommerce.servicios.TransaccionServicio;
 import jakarta.validation.Valid;
@@ -32,6 +35,9 @@ public class VentasController {
 
     @Autowired
     TransaccionProductoServicio detalleVentaServicio;
+
+    @Autowired
+    ClienteServicio clienteServicio;
 
     /**
      * Constructor de la clase VentaController.
@@ -64,6 +70,8 @@ public class VentasController {
     @GetMapping("/ventas/create")
     public String create(Model model) {
         var venta = new Transaccion();
+        var clientes = clienteServicio.listarCliente();
+        model.addAttribute("clientes", clientes);
         model.addAttribute("venta", venta);
         return "venta/create";
     }
@@ -75,7 +83,13 @@ public class VentasController {
      * @return Redirije al listado principal.
      */
     @PostMapping("/ventas")
-    public String store(@Valid Transaccion transaccion) {
+    public String store(@Valid @ModelAttribute("venta") Transaccion transaccion, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            var clientes = clienteServicio.listarCliente();
+            model.addAttribute("clientes", clientes);
+            return "venta/create";
+        }
+
         Date fecha = transaccion.getFecha();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(fecha);
@@ -113,6 +127,8 @@ public class VentasController {
     @GetMapping("/ventas/{id}/edit")
     public String edit(Model model, @PathVariable int id) {
         var venta = ventaServicio.buscarTransaccionPorId(id);
+        var clientes = clienteServicio.listarCliente();
+        model.addAttribute("clientes", clientes);
         model.addAttribute("venta", venta);
         return "venta/edit";
     }
@@ -125,7 +141,13 @@ public class VentasController {
      * @return Redirije al listado de Ventas.
      */
     @PutMapping("/ventas/{id}")
-    public String update(@Valid Transaccion venta, @PathVariable int id) {
+    public String update(@Valid @ModelAttribute("venta") Transaccion venta, BindingResult result, Model model,
+            @PathVariable int id) {
+        if (result.hasErrors()) {
+            var clientes = clienteServicio.listarCliente();
+            model.addAttribute("clientes", clientes);
+            return "venta/edit";
+        }
         Date fecha = venta.getFecha();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(fecha);
