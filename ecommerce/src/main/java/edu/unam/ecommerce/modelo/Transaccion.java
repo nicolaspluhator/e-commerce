@@ -30,12 +30,15 @@ public class Transaccion {
     @Setter(AccessLevel.NONE)
     private Integer idTransaccion;
     @NotNull
+    @NotEmpty(message = "El numero de factura es requerido")
     @Size(max = 40)
     @Column(length = 40)
     private String nroFactura;
+
+    @NotNull(message = "La fecha no puede ser nula")
+    @PastOrPresent
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = ISO.DATE)
-    @NotNull
     private Date fecha;
 
     private Estado estado = Estado.INICIADA;
@@ -46,6 +49,14 @@ public class Transaccion {
     private LocalDateTime updated_at = LocalDateTime.now();
     @OneToMany(mappedBy = "transaccion")
     private List<TransaccionProducto> renglones = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "cliente", nullable = true)
+    private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "proveedor", nullable = true)
+    private Proveedor proveedor;
 
     /**
      * Devuelve la suma de todos los totales de los renglones.

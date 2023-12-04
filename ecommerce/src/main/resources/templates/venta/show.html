@@ -34,6 +34,7 @@
                                         <p><b>ID : </b><input type="text" readonly th:value="${venta.idTransaccion}"></input></p>
                                         <p><b>Número de Factura : </b><input type="text" readonly th:value="${venta.nroFactura}"></input></p>
                                         <p><b>Fecha : </b><input type="text" readonly th:value="${venta.fecha}"></input></p>
+                                        <p><b>Cliente : </b><input type="text" readonly th:value="${venta.cliente.apellidoCliente}+' '+${venta.cliente.nombreCliente}"></input></p>
                                     </div>
                                 </div>
                                 <div class="row mt-4">

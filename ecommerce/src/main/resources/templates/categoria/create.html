@@ -22,10 +22,12 @@
                                 <!--input type="hidden" name="idCategoria" th:field="*{idCategoria}"/-->
                                 <br/>
                                 <label class="form-label" for="nombreCategoria">Nombre:</label>
-                                <input class="form-control" type="text" name="nombreCategoria" th:field="*{nombreCategoria}"/>
+                                <input id="nombreCategoria" type="text" name="nombreCategoria" th:field="*{nombreCategoria}" class="form-control" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('nombreCategoria')}" th:errors="*{nombreCategoria}"></small>
                                 <br/>
                                 <label class="form-label" for="descripcionCategoria">Descripción: </label>
-                                <input class="form-control" type="text" name="descripcionCategoria" th:field="*{descripcionCategoria}"/>
+                                <input class="form-control" type="text" name="descripcionCategoria" th:field="*{descripcionCategoria}" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('descripcionCategoria')}" th:errors="*{descripcionCategoria}"></small>
                                 <br/>
                                 <div class="text-end">
                                     <input class="btn btn-primary" type="submit" name="guardar" value="Guardar"/>

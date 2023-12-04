@@ -21,10 +21,19 @@
                         <form th:action="@{/ventas}" method="post" th:object="${venta}">
                             <br/>
                             <label class="form-label" for="nroFactura">N° Factura:</label>
-                            <input class="form-control" type="text" name="nroFactura" th:field="*{nroFactura}"/>
+                            <input class="form-control" type="text" name="nroFactura" th:field="*{nroFactura}" th:errorclass="'form-control is-invalid'"/>
+                            <small class="invalid-feedback" th:if="${#fields.hasErrors('nroFactura')}" th:errors="*{nroFactura}"></small>
                             <br/>
                             <label class="form-label" for="fecha">Fecha: </label>
-                            <input class="form-control" type="date" name="fecha" th:field="*{fecha}"/>
+                            <input class="form-control" type="date" name="fecha" th:field="*{fecha}" th:errorclass="'form-control is-invalid'"/>
+                            <small class="invalid-feedback" th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></small>
+                            <br/>
+                            <label class="form-label" for="cliente">Seleccione un cliente: </label>
+                            <select name="cliente" class="form-select" aria-label="Select de Clientes" th:errorclass="'form-select is-invalid'" th:field="*{cliente}">
+                                <option value = "0" selected>-- Seleccione un cliente --</option>
+                                <option th:each="cliente: ${clientes}" th:value="${cliente.idCliente}" th:text="${cliente.apellidoCliente}+' '+${cliente.nombreCliente}"></option>
+                              </select>
+                              <small class="invalid-feedback" th:if="${#fields.hasErrors('cliente')}" th:errors="*{cliente}"></small>
                             <br/>
                             <div class="text-end">
                                 <input class="btn btn-primary" type="submit" name="guardar" value="Guardar"/>

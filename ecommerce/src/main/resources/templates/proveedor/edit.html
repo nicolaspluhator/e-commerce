@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{plantilla/layout :: head}">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header th:replace="~{plantilla/layout :: header}"></header>
+
+        <div class="container-fluid my-4">
+            <main class="row m-4">
+                <div class="col card">
+                    <div class="row">
+                        <div class="card-header">
+                            <h2 class="h2 p-3">Editar un Proveedor</h2>
+                        </div>
+                    </div>
+                    <div class="row m-2">
+                        <div class="col">
+                            <form th:action="@{/proveedores/} + ${proveedor.idProveedor}" th:method="put" th:object="${proveedor}">
+                                
+                                <br/>
+                                <label class="form-label" for="nombreProveedor">Nombre:</label>
+                                <input id="nombreProveedor" type="text" name="nombreProveedor" th:field="*{nombreProveedor}" class="form-control" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('nombreProveedor')}" th:errors="*{nombreProveedor}"></small>
+                                <br/>
+                                <label class="form-label" for="telefonoProveedor">Telefono: </label>
+                                <input id="telefonoProveedor" type="number" name="telefonoProveedor" th:field="*{telefonoProveedor}" class="form-control" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonoProveedor')}" th:errors="*{telefonoProveedor}"></small>
+                                <br/>
+                                <label class="form-label" for="descripcionProveedor">Descripcion: </label>
+                                <input id="descripcionProveedor" type="text" name="descripcionProveedor" th:field="*{descripcionProveedor}" class="form-control" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('descripcionProveedor')}" th:errors="*{descripcionProveedor}"></small>
+                                <br/>
+
+                                <div class="text-end">
+                                    <input class="btn btn-warning" type="submit" name="editar" value="Editar"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <footer th:replace="~{plantilla/layout :: footer}"></footer>
+    </body>
+</html>

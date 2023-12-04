@@ -19,13 +19,15 @@
                     <div class="row m-2">
                         <div class="col">
                             <form th:action="@{/categorias/} + ${categoria.idCategoria}" th:method="put" th:object="${categoria}">
-                                <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
+                                <input type="hidden" name="idCategoria"/>
                                 <br/>
                                 <label class="form-label" for="nombreCategoria">Nombre:</label>
-                                <input class="form-control" type="text" name="nombreCategoria" th:field="*{nombreCategoria}"/>
+                                <input class="form-control" type="text" name="nombreCategoria" th:field="*{nombreCategoria}" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('nombreCategoria')}" th:errors="*{nombreCategoria}"></small>
                                 <br/>
                                 <label class="form-label" for="descripcionCategoria">Descripción: </label>
-                                <input class="form-control" type="text" name="descripcionCategoria" th:field="*{descripcionCategoria}"/>
+                                <input class="form-control" type="text" name="descripcionCategoria" th:field="*{descripcionCategoria}" th:errorclass="'form-control is-invalid'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('descripcionCategoria')}" th:errors="*{descripcionCategoria}"></small>
                                 <br/>
                                 <div class="text-end">
                                     <input class="btn btn-warning" type="submit" name="editar" value="Editar"/>

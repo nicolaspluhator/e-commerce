@@ -21,10 +21,19 @@
                         <form th:action="@{/ingresos}" method="post" th:object="${ingreso}">
                             <br/>
                             <label class="form-label" for="nroFactura">N° Factura:</label>
-                            <input class="form-control" type="text" name="nroFactura" th:field="*{nroFactura}"/>
+                            <input class="form-control" type="text" name="nroFactura" th:field="*{nroFactura}" th:errorclass="'form-control is-invalid'"/>
+                            <small class="invalid-feedback" th:if="${#fields.hasErrors('nroFactura')}" th:errors="*{nroFactura}"></small>
                             <br/>
                             <label class="form-label" for="fecha">Fecha: </label>
-                            <input class="form-control" type="date" name="fecha" th:field="*{fecha}"/>
+                            <input class="form-control" type="date" name="fecha" th:field="*{fecha}" th:errorclass="'form-control is-invalid'"/>
+                            <small class="invalid-feedback" th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></small>
+                            <br/>
+                            <label class="form-label" for="proveedor">Seleccione un Proveedor: </label>
+                            <select name="proveedor" class="form-select" aria-label="Select de Proveedores" th:errorclass="'form-select is-invalid'" th:field="*{proveedor}">
+                                <option value = "0" selected>-- Seleccione un proveedor --</option>
+                                <option th:each="proveedor: ${proveedores}" th:value="${proveedor.idProveedor}" th:text="${proveedor.nombreProveedor}"></option>
+                              </select>
+                              <small class="invalid-feedback" th:if="${#fields.hasErrors('proveedor')}" th:errors="*{proveedor}"></small>
                             <br/>
                             <div class="text-end">
                                 <input class="btn btn-primary" type="submit" name="guardar" value="Guardar"/>
